@@ -30,8 +30,6 @@ export default function LogoTitle() {
                     fontSize: 16,
 
 
-
-
                 }}>AGRICULTURE NEPAL</Text>
             </View>
         </View>

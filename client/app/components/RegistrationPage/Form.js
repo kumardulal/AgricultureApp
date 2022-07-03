@@ -30,25 +30,31 @@ export default function Form() {
 
 
     const handlesubmit = () => {
-
-        Axios.post(`${ApiAddress.httpaddress}/api/registration`, {
-            fullname: fullname,
-            phonenumber: phonenumber,
-            fulladdress: fulladdress,
-            usertype: userType,
-            userfield: userField,
-            password: password,
-            userbio: userbio
-        }).then((res) => {
-
-            alert("Register Successfull. Try to Login your account")
-
-        }).then(() => {
-            navigation.navigate("LoginScreen")
-        })
-            .catch(error => console.log(error))
+        if (fullname === "" || phonenumber === '' || fulladdress === '' || userType === "" || userField === "" || password === '') {
+            alert("missing something to fill up")
+        }
+        else {
 
 
+
+            Axios.post(`${ApiAddress.httpaddress}/api/registration`, {
+                fullname: fullname,
+                phonenumber: phonenumber,
+                fulladdress: fulladdress,
+                usertype: userType,
+                userfield: userField,
+                password: password,
+                userbio: userbio
+            }).then((res) => {
+
+                alert("Register Successfull. Try to Login your account")
+
+            }).then(() => {
+                navigation.navigate("LoginScreen")
+            })
+                .catch(error => console.log(error))
+
+        }
     }
 
     // should be state

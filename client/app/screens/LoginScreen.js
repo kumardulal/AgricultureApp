@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, Image, SafeAreaView, TextInput, Button, TouchableOpacity } from 'react-native'
 import Colorsmanager from '../collections/Colorsmanager'
 import Coverbox from '../components/LOGINPAGE/Coverbox'
@@ -6,7 +6,7 @@ import LogoTitle from '../components/LOGINPAGE/LogoTitle'
 import RegistrationScreen from './RegistrationScreen'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Axios } from 'axios'
+import Axios from 'axios'
 import ApiAddress from '../components/ApiTrigger/ApiAddress'
 
 
@@ -15,51 +15,68 @@ import ApiAddress from '../components/ApiTrigger/ApiAddress'
 
 
 export default function LoginScreen({ navigation }) {
-    const [userphonenumberInput, setUserPhoneNumberInput] = useState('')
-    const [userpasswordInput, userPasswordInput] = useState('')
+    const [phonenumber, setPhoneNumber] = useState('')
+    const [password, setPassword] = useState('')
+
+
+    //this useEffect will reset the states of login credentials
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+
+            setPhoneNumber('');
+            setPassword('')
+
+            // do something
+
+            console.log("hello")
+        }
+        );
+
+        return unsubscribe;
+    }, [navigation, 1]);
+
+
+
 
     const handleLoginPress = () => {
-        console.log(userPasswordInput)
+        Axios.post(`${ApiAddress.httpaddress}/api/UserAuthLogin`, {
+            phonenumber: phonenumber,
+            password: password,
 
-        // Axios.post(`${ApiAddress.httpaddress}/api/welcomescreen/logintask`, {
-        //     userphonenumberInput: userphonenumberInput,
-        //     userpasswordInput: userpasswordInput,
+        }).then((response) => {
+            if (response.data.message) {
+                alert(response.data.message);
 
-        // }).then((response) => {
-        //     if (response.data.message) {
-        //         alert(response.data.message);
+            }
 
+            else {
+                // handle success
+                /// declaring the values of api responnse data of user to send it as props to other child routes .
+                const userid = response.data[0].userid;
+                const fullname = response.data[0].phonenumber;
+                const phonenumber = response.data[0].fulladdress;
+                const fulladdress = response.data[0].fulladdress;
+                const usertype = response.data[0].usertype;
+                const userfield = response.data[0].userfield;
+                const userbio = response.data[0].userbio
+                const data = {
+                    'userid': userid,
+                    'fullname': fullname,
+                    'phonenumber': phonenumber,
+                    "fulladdress": fulladdress,
+                    "usertype": usertype,
+                    "userfield": userfield,
+                    "userbio": userbio
 
-        //     }
+                }
+                navigation.navigate({
+                    name: 'HomeScreen',
+                    params: { data: data }, //here if I pass data as something different name the way i get this data in another file might not accept
+                    merge: true,
+                });
+            }
 
-        //     else {
-        //         // handle success
-        //         /// declaring the values of api responnse data of user to send it as props to other child routes .
-        //         const userid = response.data[0].userid;
-        //         const fullname = response.data[0].phonenumber;
-        //         const phonenumber = response.data[0].fulladdress;
-        //         const fulladdress = response.data[0].fulladdress;
-        //         const usertype = response.data[0].usertype;
-        //         const userfield = response.data[0].userfield;
-        //         const userbio = response.data[0].userbio
-        //         const data = {
-        //             'userid': userid,
-        //             'fullname': fullname,
-        //             'phonenumber': phonenumber,
-        //             "fulladdress": fulladdress,
-        //             "usertype": usertype,
-        //             "userfield": userfield,
-        //             "userbio": userbio
-
-        //         }
-        //         navigation.navigate({
-        //             name: 'HomeScreen',
-        //             params: { data: data }, //here if I pass data as something different name the way i get this data in another file might not accept
-        //             merge: true,
-        //         });
-        //     }
-
-        // }).catch(error => console.log(error));
+        }).catch(error => console.log(error));
 
 
 
@@ -89,7 +106,8 @@ export default function LoginScreen({ navigation }) {
                         <FontAwesome5 style={{ backgroundColor: "white", height: 50, padding: 5 }} name="phone-alt" size={37} color="black" />
 
                         <TextInput
-                            onChangeText={setUserPhoneNumberInput}
+                            onChangeText={setPhoneNumber}
+                            value={phonenumber}
                             // value={ }
 
 
@@ -105,10 +123,11 @@ export default function LoginScreen({ navigation }) {
 
                         <MaterialCommunityIcons style={{ backgroundColor: "white", height: 50, padding: 5, opacity: 0.8 }} name="onepassword" size={37} color="black" />
                         <TextInput
-                            onChangeText={setUserPhoneNumberInput}
+                            onChangeText={setPassword}
                             secureTextEntry={true}
                             placeholder="Password"
                             placeholderTextColor="#00716F"
+                            value={password}
                             style={styles.input}
                         >
 

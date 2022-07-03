@@ -43,27 +43,25 @@ app.post("/api/registration", (req, res) => {
 })
 
 //login authentication
-// app.post("/api/UserAuthLogin", (req, res) => {
-//     const userphonenumberInput = req.body.userphonenumberInput
-//     const userpasswordInput = req.body.userpasswordInput
-//     const sqlSelect = "Select  * from users where phonenumber = ? And password= ?; "
-//     db.query(sqlSelect, [userphonenumberInput, userpasswordInput], (err, result) => {
-//         if (err) {
+app.post("/api/UserAuthLogin", (req, res) => {
+    const phonenumber = req.body.phonenumber
+    const password = req.body.password
+    const sqlSelect = "Select  * from users where phonenumber = ? And password= ?; "
+    db.query(sqlSelect, [phonenumber, password], (err, result) => {
+        if (err) {
 
-//             res.send({ err: err })
-//         } else if (result.length > 0) {
+            res.send({ err: err })
+        } else if (result.length > 0) {
 
-//             res.send(result);
+            res.send(result);
 
+        }
+        else {
+            res.send({ message: "❌Invalid Credentials 🧐" })
+        }
+    })
+})
 
-
-//         }
-//         else {
-//             res.send({ message: "❌Invalid Credentials 🧐" })
-//         }
-//     })
-// })
-
-// app.listen(8001, () => {
-//     console.log("running on port 8001")
-// })
+app.listen(8001, () => {
+    console.log("running on port 8001")
+})

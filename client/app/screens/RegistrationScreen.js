@@ -6,15 +6,10 @@ import LogoTitle from '../components/LOGINPAGE/LogoTitle'
 import { MaterialIcons } from '@expo/vector-icons';
 import Form from '../components/RegistrationPage/Form'
 import { Ionicons } from '@expo/vector-icons';
-import { absoluteFill } from 'react-native-extended-stylesheet';
+
 
 export default function RegistrationScreen({ navigation }) {
-    // const [fullname, setFullName] = useState('')
-    // const [phonenumber, setPhoneNumber] = useState('')
-    // const [fulladdress, setFullAddress] = useState('')
-    // const [usertype, setUserType] = useState('')
-    // const [userfield, setUserField] = useState('')
-    // const [userbio, setUserBio] = useState('')
+
 
 
     return (
