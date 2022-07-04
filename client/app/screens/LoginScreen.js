@@ -70,7 +70,7 @@ export default function LoginScreen({ navigation }) {
 
                 }
                 navigation.navigate({
-                    name: 'HomeScreen',
+                    name: 'DrawerNav',
                     params: { data: data }, //here if I pass data as something different name the way i get this data in another file might not accept
                     merge: true,
                 });

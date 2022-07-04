@@ -14,7 +14,7 @@ export default function LogoTitle() {
             }}>
                 <Image
                     resizeMode="contain"
-                    style={{ width: 80, height: 70 }}
+                    style={{ width: 55, height: 70 }}
                     source={(require("../../assets/icon.png"))} />
             </View>
 
@@ -23,11 +23,13 @@ export default function LogoTitle() {
                 marginRight: 1,
                 top: "12%",
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
+
+                right: "40%"
             }}>
                 <Text style={{
                     fontWeight: 'bold',
-                    fontSize: 16,
+                    fontSize: 17,
 
 
                 }}>AGRICULTURE NEPAL</Text>
