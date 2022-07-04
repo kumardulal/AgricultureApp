@@ -1,12 +1,15 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native'
-import Colorsmanager from '../../collections/Colorsmanager'
+import { View, Text, StyleSheet, Image, SafeAreaView, TouchableOpacity } from 'react-native'
+
 
 
 
 export default function LogoTitle() {
+
     return (
-        <View style={styles.titlecontainer}>
+        <TouchableOpacity
+
+            style={styles.titlecontainer} >
             <View style={{
                 height: 63,
                 width: 83,
@@ -34,7 +37,7 @@ export default function LogoTitle() {
 
                 }}>AGRICULTURE NEPAL</Text>
             </View>
-        </View>
+        </TouchableOpacity >
     )
 }
 const styles = StyleSheet.create({

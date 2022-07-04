@@ -12,8 +12,8 @@ export default function WeatherForeCast() {
             justifyContent: "center",
             alignItems: 'center',
             flexWrap: "wrap",
-            borderBottomEndRadius: 50,
-            borderBottomLeftRadius: 50
+            // borderBottomEndRadius: 50,
+            // borderBottomLeftRadius: 50
 
         }}>
             <View style={{ flex: 1, width: "100%", padding: 10 }}>
@@ -25,7 +25,7 @@ export default function WeatherForeCast() {
                     }}>30°c</Text>
                     <Text style={{
                         fontSize: 15,
-                        color: Colorsmanager.buttontype1,
+                        color: Colorsmanager.secondary,
                         top: "3%"
                     }}>MONDAY July 2022</Text>
 

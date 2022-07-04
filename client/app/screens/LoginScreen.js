@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Image, SafeAreaView, TextInput, Button, Touchab
 import Colorsmanager from '../collections/Colorsmanager'
 import Coverbox from '../components/LOGINPAGE/Coverbox'
 import LogoTitle from '../components/LOGINPAGE/LogoTitle'
-import RegistrationScreen from './RegistrationScreen'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Axios from 'axios'

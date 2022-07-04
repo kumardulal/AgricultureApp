@@ -33,7 +33,7 @@ function DrawerNav() {
             screenOptions={{
                 drawerStyle: {
 
-                    backgroundColor: Colorsmanager.secondary,
+                    backgroundColor: Colorsmanager.blanksilver,
                     width: 240,
                     headerShown: false,
 
@@ -46,10 +46,10 @@ function DrawerNav() {
         >
             <Drawer.Screen
                 //home
-                name="News Feed" component={HomeScreen}
+                name="Home" component={HomeScreen}
 
                 options={{
-                    drawerLabel: "News Feed",
+                    drawerLabel: "Home",
                     headerShown: false
 
                 }}

@@ -28,7 +28,7 @@ const NewsItems = () => {
 
                         <View style={{ flexWrap: "nowrap", backgroundColor: Colorsmanager.blanksilver, height: "95%", width: "55%" }}>
                             <Text style={{ fontWeight: 'bold', fontSize: 20, left: 5 }}>Work Agriculture</Text>
-                            <Text style={{ padding: 2.7, left: 5 }}>This is the place to write about the news. Highlighted title will be here</Text>
+                            <Text style={styles.textalignstraight}>This is the place to write about the news. Highlighted title will be here</Text>
                         </View>
 
                     </View>
@@ -60,7 +60,7 @@ const NewsItems = () => {
 
                         <View style={{ flexWrap: "nowrap", backgroundColor: Colorsmanager.blanksilver, height: "95%", width: "55%" }}>
                             <Text style={{ fontWeight: 'bold', fontSize: 20, left: 5 }}>Time to grow Graps</Text>
-                            <Text style={{ padding: 2.7, left: 5 }}>This is the place to write about the news. Highlighted title will be here</Text>
+                            <Text style={styles.textalignstraight}>This is the place to write about the news. Highlighted title will be here</Text>
                         </View>
 
                     </View>
@@ -94,7 +94,7 @@ const NewsItems = () => {
 
                         <View style={{ flexWrap: "nowrap", backgroundColor: Colorsmanager.blanksilver, height: "95%", width: "55%" }}>
                             <Text style={{ fontWeight: 'bold', fontSize: 20, left: 5 }}>Vegetable Farm Started</Text>
-                            <Text style={{ padding: 2.7, left: 5 }}>This is the place to write about the news. Highlighted title will be here</Text>
+                            <Text style={styles.textalignstraight}>This is the place to write about the news. Highlighted title will be here</Text>
                         </View>
 
                     </View>
@@ -116,7 +116,8 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
 
         flexWrap: "wrap"
-    }
+    },
+    textalignstraight: { padding: 2.7, left: 5, textAlign: "justify" }
 })
 
 export default NewsItems;
