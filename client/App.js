@@ -16,9 +16,10 @@ export default function App() {
       <Stack.Navigator screenOptions={{
         headerShown: false
       }} >
-        <Stack.Screen name="DrawerNav" component={DrawerNav} />
-        <Stack.Screen name="LoginScreen" component={LoginScreen} />
 
+        <Stack.Screen name="DrawerNav" component={DrawerNav} />
+
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="RegistrationScreen" component={RegistrationScreen} />
 

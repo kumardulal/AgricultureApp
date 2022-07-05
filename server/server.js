@@ -17,6 +17,8 @@ const db = mysql.createPool({
 })
 
 
+
+
 // posting Registration data 
 app.post("/api/registration", (req, res) => {
     const fullname = req.body.fullname
@@ -27,18 +29,34 @@ app.post("/api/registration", (req, res) => {
     const password = req.body.password
     const userbio = req.body.userbio
 
+    if (fullname.length < 5) {
+        res.send({ message: "❌fill up name properly" })
+    }
+    else if (phonenumber.length != 10) {
+        res.send({ message: "❌fill up phone number properly" })
+    }
+    else if (fulladdress.length < 7) {
+        res.send({ message: "❌fill up full address " })
+    }
+    else if (password.length < 8) {
 
-    const sqlInsert = "Insert into users(fullname,phonenumber,fulladdress, usertype,userfield,password,userbio) Values (?,?,?,?,?,?,?);"
-    db.query(sqlInsert, [fullname, phonenumber, fulladdress, usertype, userfield, password, userbio], (err, result) => {
-        if (err) {
-            console.log(err)
-        }
-        else {
-            res.send(result)
-        }
+        res.send({ message: "❌Your password is too small " })
+    }
+
+    else {
+        const sqlInsert = "Insert into users(fullname,phonenumber,fulladdress, usertype,userfield,password,userbio) Values (?,?,?,?,?,?,?);"
+        db.query(sqlInsert, [fullname, phonenumber, fulladdress, usertype, userfield, password, userbio], (err, result) => {
+            if (err) {
+                console.log(err)
+            }
+            else {
+                res.send({ message: "Success" })
+            }
 
 
-    })
+        })
+    }
+
 
 })
 

@@ -6,6 +6,7 @@ import HeaderItem from '../../components/HomeComponents/HeaderItem'
 
 
 export default function AboutUs() {
+
     return (
         <View>
             <HeaderItem />

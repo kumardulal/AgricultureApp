@@ -27,7 +27,7 @@ const NewsItems = () => {
                         </View>
 
                         <View style={{ flexWrap: "nowrap", backgroundColor: Colorsmanager.blanksilver, height: "95%", width: "55%" }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 20, left: 5 }}>Work Agriculture</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 20, left: 5, textAlign: "center" }}>Work Agriculture</Text>
                             <Text style={styles.textalignstraight}>This is the place to write about the news. Highlighted title will be here</Text>
                         </View>
 
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
 
         flexWrap: "wrap"
     },
-    textalignstraight: { padding: 2.7, left: 5, textAlign: "justify" }
+    textalignstraight: { padding: 2.7, left: 5, textAlign: "justify", marginRight: "4%" }
 })
 
 export default NewsItems;

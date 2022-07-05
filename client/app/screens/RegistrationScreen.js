@@ -19,7 +19,7 @@ export default function RegistrationScreen({ navigation }) {
 
                 <TouchableOpacity
                     onPress={() => navigation.navigate("LoginScreen")}
-                    style={{ top: "10%", color: "black" }}>
+                    style={{ top: "7%", color: "black", marginLeft: 6 }}>
                     <Ionicons style={{ opacity: 0.8 }} name="md-arrow-back-outline" size={40} />
                 </TouchableOpacity>
                 <LogoTitle />

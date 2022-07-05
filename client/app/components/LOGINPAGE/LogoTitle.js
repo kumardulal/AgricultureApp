@@ -12,8 +12,9 @@ export default function LogoTitle() {
             style={styles.titlecontainer} >
             <View style={{
                 height: 63,
-                width: 83,
-                top: "13%"
+                width: 50,
+                top: "7%",
+
             }}>
                 <Image
                     resizeMode="contain"
@@ -23,20 +24,25 @@ export default function LogoTitle() {
 
             <View style={{
                 height: 63,
-                marginRight: 1,
-                top: "12%",
+                marginRight: 2,
+
                 alignItems: "center",
                 justifyContent: "center",
+                top: "7%",
 
-                right: "40%"
+
             }}>
                 <Text style={{
                     fontWeight: 'bold',
                     fontSize: 17,
 
 
+
                 }}>AGRICULTURE NEPAL</Text>
+
             </View>
+
+
         </TouchableOpacity >
     )
 }

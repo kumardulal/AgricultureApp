@@ -46,11 +46,15 @@ export default function Form() {
                 password: password,
                 userbio: userbio
             }).then((res) => {
+                if (res.data.message === "Success") {
+                    alert("Successfully Registered")
+                    navigation.navigate("LoginScreen")
+                }
+                else {
+                    alert(res.data.message)
+                }
 
-                alert("Register Successfull. Try to Login your account")
 
-            }).then(() => {
-                navigation.navigate("LoginScreen")
             })
                 .catch(error => console.log(error))
 
@@ -112,6 +116,7 @@ export default function Form() {
                 <AntDesign style={styles.vectorIcon} name="phone" size={24} color="black" />
                 <TextInput
                     onChangeText={setPhoneNumber}
+                    keyboardType='numeric'
                     style={styles.inputfield}
                     placeholder="Phone Number"
                 />
@@ -197,7 +202,7 @@ export default function Form() {
             }}>
                 <TextInput style={{ opacity: 0.5 }}
                     onChange={() => setUserBio}
-                    placeholder="Write about your field of work"
+                    placeholder="Write about your field of work(optional!)"
                     numberOfLines={5}
                     maxLength={100}
                     multiline
