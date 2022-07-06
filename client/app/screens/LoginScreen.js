@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, Image, SafeAreaView, TextInput, Button, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, SafeAreaView, TextInput, Button, TouchableOpacity, ScrollView } from 'react-native'
 import Colorsmanager from '../collections/Colorsmanager'
 import Coverbox from '../components/LOGINPAGE/Coverbox'
 import LogoTitle from '../components/LOGINPAGE/LogoTitle'
@@ -7,11 +7,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Axios from 'axios'
 import ApiAddress from '../components/ApiTrigger/ApiAddress'
-
 import { Ionicons } from '@expo/vector-icons';
-
-
-
 
 
 export default function LoginScreen({ navigation }) {
@@ -34,8 +30,6 @@ export default function LoginScreen({ navigation }) {
 
         return unsubscribe;
     }, [navigation, 1]);
-
-
 
 
 
@@ -82,8 +76,6 @@ export default function LoginScreen({ navigation }) {
 
 
 
-
-
     }
     return (
         <SafeAreaView style={styles.maincontainer} >
@@ -105,13 +97,15 @@ export default function LoginScreen({ navigation }) {
             <View style={styles.loginformcontainer}>
 
                 <View style={{
-                    height: "27%",
+                    height: "20%",
                     width: "100%",
                     alignItems: "center",
-                    marginTop: "10%",
+                    marginTop: "27%",
+
+
 
                 }}>
-                    <View style={{ width: "90%", alignItems: "center", flexDirection: "row" }}>
+                    <View style={{ width: "90%", alignItems: "center", flexDirection: "row", justifyContent: "center" }}>
                         <FontAwesome5 style={{ backgroundColor: "white", height: 50, padding: 5 }} name="phone-alt" size={37} color="black" />
 
                         <TextInput
@@ -128,7 +122,7 @@ export default function LoginScreen({ navigation }) {
                         </TextInput>
 
                     </View>
-                    <View style={{ width: "90%", alignItems: "center", flexDirection: "row" }}>
+                    <View style={{ width: "90%", alignItems: "center", flexDirection: "row", justifyContent: "center" }}>
 
                         <MaterialCommunityIcons style={{ backgroundColor: "white", height: 50, padding: 5, opacity: 0.8 }} name="onepassword" size={37} color="black" />
                         <TextInput
@@ -159,7 +153,7 @@ export default function LoginScreen({ navigation }) {
 
                         alignSelf: "center",
                         width: "100%",
-                        height: 50,
+                        height: "50%",
 
 
                     }}>
@@ -194,7 +188,7 @@ export default function LoginScreen({ navigation }) {
                     >
                         <Text style={{
                             color: Colorsmanager.primary,
-                            fontSize: 17,
+                            fontSize: 16,
                             marginTop: "12%",
                             textAlign: "center",
                             textDecorationLine: 'underline',
@@ -217,16 +211,15 @@ export default function LoginScreen({ navigation }) {
 
 const styles = StyleSheet.create({
     whitebox: {
-        height: 280,
+        height: 160,
 
         width: "100%",
         backgroundColor: Colorsmanager.blanksilver,
     },
     maincontainer: {
         flex: 1,
-        justifyContent: "center"
-        // height: "100%",
-        // width: "100%",
+        justifyContent: "center",
+
 
 
     },
@@ -234,9 +227,11 @@ const styles = StyleSheet.create({
 
     loginformcontainer: {
         flex: 1,
-        height: "50%",
+        height: "100%",
         width: "100%",
         backgroundColor: Colorsmanager.secondary,
+
+        alignItems: "center"
 
         // borderTopLeftRadius: 1,
         // borderTopRightRadius: 300,

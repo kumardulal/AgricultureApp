@@ -6,27 +6,27 @@ export default function WeatherForeCast() {
     return (
         <View style={{
             backgroundColor: Colorsmanager.blanksilver,
-            height: "8%",
+            height: "10%",
             width: "95%",
             alignSelf: "center",
             justifyContent: "center",
             alignItems: 'center',
-            flexWrap: "wrap",
+            flexWrap: "nowrap",
             // borderBottomEndRadius: 50,
             // borderBottomLeftRadius: 50
 
         }}>
-            <View style={{ flex: 1, width: "100%", padding: 10 }}>
+            <View style={{ flex: -1, width: "100%", }}>
                 <View style={styles.elementcover}>
                     <Text style={{
-                        fontSize: 35,
+                        fontSize: 32,
                         color: Colorsmanager.redhightlights,
-                        bottom: 5
+
                     }}>30°c</Text>
                     <Text style={{
                         fontSize: 15,
                         color: Colorsmanager.secondary,
-                        top: "3%"
+                        alignSelf: "center"
                     }}>MONDAY July 2022</Text>
 
 
@@ -50,7 +50,9 @@ export default function WeatherForeCast() {
 const styles = StyleSheet.create({
     elementcover: {
         flexDirection: "row",
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+
+
 
 
     }

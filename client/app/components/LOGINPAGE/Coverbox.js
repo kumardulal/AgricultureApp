@@ -7,33 +7,20 @@ import Colorsmanager from '../../collections/Colorsmanager'
 export default function Coverbox() {
     return (
         <View style={styles.coverboxCont}>
-            <View style={{ height: 200, width: "45%", backgroundColor: "white" }}>
-                {/* flag holding image set */}
+            <View>
                 <Image
-                    resizeMode="cover"
-                    style={{
-                        height: "100%",
-                        width: "100%",
-                        backgroundColor: Colorsmanager.blanksilver,
+                    resizeMode='center'
+                    style={{ width: 100, height: 100 }}
 
-
-
-                    }}
-                    source={(require('../../assets/logotypes/flagholding.png'))} />
+                    source={require("../../assets/logotypes/flagholding.png")}
+                />
             </View>
 
-            {/* tractor  image set */}
-            <View style={{ height: 200, width: "55%", right: "20%", top: 25 }}>
-                <Image
-                    style={{
-                        width: "100%",
-                        height: "100%",
+            <Image
+                style={{ width: 120, height: 120 }}
+                source={require("../../assets/logotypes/tractor.png")}
+            />
 
-
-                    }}
-                    source={(require('../../assets/logotypes/tractor.png'))} />
-
-            </View>
 
 
 
@@ -44,14 +31,12 @@ export default function Coverbox() {
 const styles = StyleSheet.create({
     coverboxCont:
     {
-        flex: -1,
-        height: 200,
+        flex: 1,
         width: "100%",
-        // backgroundColor: "red",
-        marginTop: 40,
-        alignItems: "flex-start",
-        justifyContent: "flex-end",
+
         flexDirection: "row",
-        position: "relative"
+        justifyContent: "center"
+
+
     },
 })

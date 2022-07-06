@@ -100,7 +100,14 @@ export default function Form() {
     }
 
     return (
-        <SafeAreaView style={{ width: "100%", height: "100%", alignItems: "center", flex: 1, justifyContent: "center", marginBottom: "20%" }}>
+        <SafeAreaView style={{
+            width: "100%",
+            height: 550,
+            alignItems: "center",
+            flex: 1,
+            justifyContent: "center",
+
+        }}>
 
             <View style={styles.inputContainer}>
                 <AntDesign

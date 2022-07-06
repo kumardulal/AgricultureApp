@@ -10,7 +10,9 @@ export default function HeaderItem() {
     const navigation = useNavigation()
     return (
         <SafeAreaView style={{
-            height: "15%", justifyContent: "center", alignItems: "center", bottom: "2%", flex: -1
+            height: "15%", justifyContent: "center", alignItems: "center", bottom: "2%", flex: -1,
+
+
         }}>
 
             < View style={styles.headericons} >
@@ -18,11 +20,18 @@ export default function HeaderItem() {
                     onPress={() => navigation.openDrawer()}
 
                 >
-                    <Text style={{ padding: 14, top: 6 }}>
+                    <Text style={{ padding: 12, top: 6 }}>
                         <SimpleLineIcons name="menu" size={32} color="black" />
                     </Text>
                 </TouchableOpacity>
-                <View style={{ height: 100, flexDirection: "row", alignItems: "center", bottom: "8%" }}>
+                <View style={{
+                    height: 100, flexDirection: "row", alignItems: "center",
+                    bottom: "8%",
+                    marginRight: "8%",
+                    width: "84%",
+
+                    justifyContent: "space-between"
+                }}>
                     <LogoTitle />
 
 
@@ -36,7 +45,7 @@ export default function HeaderItem() {
                             backgroundColor: Colorsmanager.redhightlights,
                             alignItems: "center",
                             borderRadius: 7,
-                            top: "5.8%",
+                            top: "5%",
                             justifyContent: "center",
                             margin: 6,
                             opacity: 0.8,
@@ -44,7 +53,12 @@ export default function HeaderItem() {
 
                         }}>
 
-                        <Text style={{ fontWeight: "bold", fontSize: 13, textAlign: "center", color: Colorsmanager.primary }}>LOGIN</Text>
+                        <Text style={{
+                            fontWeight: "bold",
+                            fontSize: 13,
+                            textAlign: "center",
+                            color: Colorsmanager.primary
+                        }}>LOGIN</Text>
                     </TouchableOpacity>
 
 
@@ -62,7 +76,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         width: "100%",
         height: 125,
-        alignItems: "center"
+        alignItems: "center",
+
 
     }
 })

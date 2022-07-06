@@ -4,7 +4,11 @@ import { View, Text, StyleSheet, Image, SafeAreaView, TouchableOpacity } from 'r
 
 
 
+
 export default function LogoTitle() {
+
+
+
 
     return (
         <TouchableOpacity
@@ -13,13 +17,14 @@ export default function LogoTitle() {
             <View style={{
                 height: 63,
                 width: 50,
-                top: "7%",
+                top: "7.2%",
 
             }}>
                 <Image
                     resizeMode="contain"
-                    style={{ width: 55, height: 70 }}
+                    style={{ width: 45, height: 70 }}
                     source={(require("../../assets/icon.png"))} />
+
             </View>
 
             <View style={{
@@ -34,9 +39,7 @@ export default function LogoTitle() {
             }}>
                 <Text style={{
                     fontWeight: 'bold',
-                    fontSize: 17,
-
-
+                    fontSize: 14,
 
                 }}>AGRICULTURE NEPAL</Text>
 
