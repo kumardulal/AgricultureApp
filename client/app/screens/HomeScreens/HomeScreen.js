@@ -11,7 +11,7 @@ import NewsItems from '../../components/HomeComponents/NewsItems';
 export default function HomeScreen({ navigation }) {
 
     return (
-        <SafeAreaView style={{ flex: 1, width: "100%", alignSelf: "center", }}>
+        <SafeAreaView style={{ flex: 1, width: "100%", alignSelf: "center", marginTop: 5 }}>
             <HeaderItem navigation={navigation} />
 
             <WeatherForeCast />
