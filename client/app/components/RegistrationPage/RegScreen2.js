@@ -1,16 +1,83 @@
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, TextInput } from 'react-native'
 import Colorsmanager from '../../collections/Colorsmanager'
 import { Ionicons } from '@expo/vector-icons';
 import Checkbox from 'expo-checkbox';
-
 import LogoTitle from '../LOGINPAGE/LogoTitle';
-import { TextInput } from 'react-native-gesture-handler';
+import ApiAddress from '../ApiTrigger/ApiAddress';
+import Axios from 'axios';
 
 export default function RegScreen2({ route, navigation }) {
     const registrationData = route.params?.registrationData
     const [isChecked, setChecked] = useState(false);
-    console.log(registrationData)
+    const [dalahan, setDalahan] = useState(false)
+    const [tarkari, setTarkari] = useState(false)
+    const [chau, setChau] = useState(false)
+    const [telhan, setTelhan] = useState(false)
+    const [gai, setGai] = useState(false)
+    const [Vaisi, SetVaisi] = useState(false)
+    const [bakhra, setBakhra] = useState(false)
+    const [khukhura, setKhukhura] = useState(false)
+    const [kukur, setKukur] = useState(false)
+    const [macha, setMacha] = useState(false)
+    const [others, setOthers] = useState(false)
+
+
+
+    const handleApplyNow = () => {
+        // console.log(registrationData.fname)
+        // const fname = registrationData.fname,
+        // const lname = registrationData.lname,
+        // const phonenumber = registrationData.phonenumber,
+        // const tole = registrationData.tole,
+        // const napagapa = registrationData.napagapa,
+        // const district = registrationData.district,
+        // const province = registrationData.province,
+        // const usertype = registrationData.selectedusertype
+
+
+        Axios.post(`${ApiAddress.httpaddress}/api/registration`, {
+            firstname: registrationData.fname,
+            lastname: registrationData.lname,
+            phonenumber: registrationData.phonenumber,
+            tole: registrationData.tole,
+            napagapa: registrationData.napagapa,
+            district: registrationData.district,
+            province: registrationData.province,
+
+            usertype: registrationData.selectedusertype,
+            password: registrationData.password,
+            dalahan: dalahan,
+            tarkari: tarkari,
+            chau: chau,
+            telhan: telhan,
+            gai: gai,
+            Vaisi: Vaisi,
+            bakhra: bakhra,
+            khukhura: khukhura,
+            kukur: kukur,
+            macha: macha,
+            others: others
+
+
+        }).then((res) => {
+            if (res.data.message === "Success") {
+                alert("Successfully Registered")
+                navigation.navigate("LoginScreen")
+            }
+            else {
+                alert(res.data.message)
+            }
+
+
+        })
+            .catch(error => console.log(error))
+
+    }
+
+
+
+
     return (
         <View>
             <View style={{
@@ -60,9 +127,9 @@ export default function RegScreen2({ route, navigation }) {
 
                             <Checkbox
                                 style={styles.checkbox}
-                                value={isChecked}
-                                onValueChange={setChecked}
-                                color={isChecked ? '#4630EB' : undefined}
+                                value={dalahan}
+                                onValueChange={setDalahan}
+                                color={dalahan ? '#4630EB' : undefined}
                             />
                             <Text>दलहन</Text>
 
@@ -90,9 +157,9 @@ export default function RegScreen2({ route, navigation }) {
 
                             <Checkbox
                                 style={styles.checkbox}
-                                value={isChecked}
-                                onValueChange={setChecked}
-                                color={isChecked ? '#4630EB' : undefined}
+                                value={tarkari}
+                                onValueChange={setTarkari}
+                                color={tarkari ? '#4630EB' : undefined}
                             />
                             <Text>तरकारी</Text>
 
@@ -118,9 +185,9 @@ export default function RegScreen2({ route, navigation }) {
 
                             <Checkbox
                                 style={styles.checkbox}
-                                value={isChecked}
-                                onValueChange={setChecked}
-                                color={isChecked ? '#4630EB' : undefined}
+                                value={chau}
+                                onValueChange={setChau}
+                                color={chau ? '#4630EB' : undefined}
                             />
                             <Text>च्याउ</Text>
 
@@ -146,9 +213,9 @@ export default function RegScreen2({ route, navigation }) {
 
                             <Checkbox
                                 style={styles.checkbox}
-                                value={isChecked}
-                                onValueChange={setChecked}
-                                color={isChecked ? '#4630EB' : undefined}
+                                value={telhan}
+                                onValueChange={setTelhan}
+                                color={telhan ? '#4630EB' : undefined}
                             />
                             <Text>  तेलहन</Text>
 
@@ -186,9 +253,9 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ANIMAS CATAGORY$$$$$$ */}
 
                             <Checkbox
                                 style={styles.checkbox}
-                                value={isChecked}
-                                onValueChange={setChecked}
-                                color={isChecked ? '#4630EB' : undefined}
+                                value={gai}
+                                onValueChange={setGai}
+                                color={gai ? '#4630EB' : undefined}
                             />
                             <Text>   गाई</Text>
 
@@ -222,9 +289,9 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ANIMAS CATAGORY$$$$$$ */}
 
                             <Checkbox
                                 style={styles.checkbox}
-                                value={isChecked}
-                                onValueChange={setChecked}
-                                color={isChecked ? '#4630EB' : undefined}
+                                value={Vaisi}
+                                onValueChange={SetVaisi}
+                                color={Vaisi ? '#4630EB' : undefined}
                             />
                             <Text>  भैंसी</Text>
 
@@ -256,9 +323,9 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ANIMAS CATAGORY$$$$$$ */}
 
                             <Checkbox
                                 style={styles.checkbox}
-                                value={isChecked}
-                                onValueChange={setChecked}
-                                color={isChecked ? '#4630EB' : undefined}
+                                value={bakhra}
+                                onValueChange={setBakhra}
+                                color={bakhra ? '#4630EB' : undefined}
                             />
                             <Text>
                                 बाख्रा</Text>
@@ -291,9 +358,9 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ANIMAS CATAGORY$$$$$$ */}
 
                             <Checkbox
                                 style={styles.checkbox}
-                                value={isChecked}
-                                onValueChange={setChecked}
-                                color={isChecked ? '#4630EB' : undefined}
+                                value={khukhura}
+                                onValueChange={setKhukhura}
+                                color={khukhura ? '#4630EB' : undefined}
                             />
                             <Text>  कुखुरा</Text>
 
@@ -328,12 +395,51 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ANIMAS CATAGORY$$$$$$ */}
 
                             <Checkbox
                                 style={styles.checkbox}
-                                value={isChecked}
-                                onValueChange={setChecked}
-                                color={isChecked ? '#4630EB' : undefined}
+                                value={kukur}
+                                onValueChange={setKukur}
+                                color={kukur ? '#4630EB' : undefined}
                             />
                             <Text>
                                 कुकुर</Text>
+
+
+
+
+                        </View>
+
+
+
+                        <View style={styles.InputCont}>
+                            <TextInput
+                                keyboardType='numeric'
+                                placeholder='मात्रा'
+                            />
+                        </View>
+                        <View style={styles.InputCont}>
+                            <TextInput
+                                placeholder='भूमि क्षेत्र'
+                                keyboardType='numeric'
+                            />
+                        </View>
+
+                    </View>
+
+                    {/* ------------outerchexkBox ends here */}
+
+
+                    {/* ------------outerchexkBox ends here */}
+                    <View style={styles.outerChekbox}>
+                        <View style={styles.checkboxCont}>
+
+
+                            <Checkbox
+                                style={styles.checkbox}
+                                value={macha}
+                                onValueChange={setMacha}
+                                color={macha ? '#4630EB' : undefined}
+                            />
+                            <Text>
+                                माछा</Text>
 
 
 
@@ -367,12 +473,12 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ANIMAS CATAGORY$$$$$$ */}
 
                             <Checkbox
                                 style={styles.checkbox}
-                                value={isChecked}
-                                onValueChange={setChecked}
-                                color={isChecked ? '#4630EB' : undefined}
+                                value={others}
+                                onValueChange={setOthers}
+                                color={others ? '#4630EB' : undefined}
                             />
                             <Text>
-                                कुकुर</Text>
+                                अरूहरू नै</Text>
 
 
 
@@ -383,7 +489,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ANIMAS CATAGORY$$$$$$ */}
 
                         <View style={{ borderBottomWidth: 1, width: "60%" }}>
                             <TextInput
-                                keyboardType='numeric'
+
                                 placeholder='
                                 कुनै पनि उल्लेख गर्नुहोस्'
                             />
@@ -393,7 +499,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ANIMAS CATAGORY$$$$$$ */}
                     </View>
 
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("LoginScreen")}
+                        onPress={() => handleApplyNow()}
                         style={{
                             height: 40,
                             width: "50 %",

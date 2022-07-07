@@ -17,7 +17,7 @@ const NewsItems = () => {
 
                 }} >
                     <View style={styles.cardcontainer}>
-                        <View style={{ width: "100%", height: "95%" }}>
+                        <View style={{ width: "96%", height: "95%" }}>
 
                             <Image
                                 style={{ width: "100%", height: "100%", opacity: 0.88 }}

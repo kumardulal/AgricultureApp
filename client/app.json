@@ -29,6 +29,6 @@
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "description": "design remake revisdion\n"
+    "description": "New Registration flow updated with new database\n"
   }
 }

@@ -21,6 +21,7 @@ export default function RegScreen({ navigation }) {
     const [napagapa, setNapaGapa] = useState('')
     const [district, setDistrict] = useState('')
     const [province, setProvince] = useState('')
+    const [password, setPassword] = useState('')
 
 
 
@@ -53,7 +54,10 @@ export default function RegScreen({ navigation }) {
                     "napagapa": napagapa,
                     "district": district,
                     "province": province,
-                    "selectedusertype": selectedusertype
+
+                    "selectedusertype": selectedusertype,
+                    "password": password,
+
                 }
 
                 navigation.navigate({
@@ -175,6 +179,14 @@ export default function RegScreen({ navigation }) {
                     </View>
 
                 </View>
+                <View style={styles.inputfield}>
+                    <TextInput
+                        onChangeText={setPassword}
+                        style={styles.inputtext}
+                        secureTextEntry={true}
+                        placeholder="पासवर्ड"
+                    />
+                </View>
 
                 {/* ------------------------------------------ */}
                 <Text style={{ fontSize: 20, margin: "0.6%" }}>विवरण</Text>
@@ -190,6 +202,9 @@ export default function RegScreen({ navigation }) {
                         <Picker.Item label="अरु" value="अरु" />
                     </Picker>
                 </View>
+                {/* ------------------------------------------ */}
+
+
 
                 {/* ---------------------------------SUBMIT BUTTON ?NEXT- */}
                 <TouchableOpacity

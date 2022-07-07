@@ -9,24 +9,31 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function HeaderItem() {
     const navigation = useNavigation()
     return (
-        <SafeAreaView style={{
-            height: "15%", justifyContent: "center", alignItems: "center", bottom: "2%", flex: -1,
+        <View style={{
+
+            justifyContent: "center",
+            alignItems: "center",
+            flex: -1,
+
+
 
 
         }}>
 
             < View style={styles.headericons} >
+
                 <TouchableOpacity
+
                     onPress={() => navigation.openDrawer()}
 
                 >
-                    <Text style={{ padding: 12, top: 6 }}>
-                        <SimpleLineIcons name="menu" size={32} color="black" />
+                    <Text style={{ paddingRight: 10, paddingLeft: 10, top: "12%", }}>
+                        <SimpleLineIcons name="menu" size={35} color="black" />
                     </Text>
                 </TouchableOpacity>
                 <View style={{
                     height: 100, flexDirection: "row", alignItems: "center",
-                    bottom: "8%",
+
                     marginRight: "8%",
                     width: "84%",
 
@@ -36,7 +43,7 @@ export default function HeaderItem() {
 
 
                     {/* login button HERE */}
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
 
                         onPress={() => navigation.navigate("LoginScreen")}
                         style={{
@@ -59,14 +66,15 @@ export default function HeaderItem() {
                             textAlign: "center",
                             color: Colorsmanager.primary
                         }}>LOGIN</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
 
 
                 </View>
-
             </View>
 
-        </ SafeAreaView >
+
+
+        </ View >
     );
 }
 const styles = StyleSheet.create({
@@ -75,8 +83,16 @@ const styles = StyleSheet.create({
 
         flexDirection: "row",
         width: "100%",
-        height: 125,
+        height: 110,
         alignItems: "center",
+        backgroundColor: Colorsmanager.secondary,
+        opacity: 0.9,
+
+
+
+
+
+
 
 
     }

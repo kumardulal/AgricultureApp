@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet, Image, SafeAreaView, TouchableOpacity } from 'react-native'
-
-
+import DateTimeCurrent from '../Engines/DateTimeCurrent'
+import NepaliDate from 'nepali-date-converter'
 
 
 
 export default function LogoTitle() {
 
+    console.log(DateTimeCurrent)
 
 
 
@@ -15,10 +16,9 @@ export default function LogoTitle() {
 
             style={styles.titlecontainer} >
             <View style={{
-                height: 63,
-                width: 50,
-                top: "7.2%",
-
+                height: 70,
+                width: 45,
+                top: "6%",
             }}>
                 <Image
                     resizeMode="contain"
@@ -29,22 +29,25 @@ export default function LogoTitle() {
 
             <View style={{
                 height: 63,
-                marginRight: 2,
+                top: "5%",
 
                 alignItems: "center",
                 justifyContent: "center",
-                top: "7%",
+
+
 
 
             }}>
                 <Text style={{
                     fontWeight: 'bold',
-                    fontSize: 14,
+                    fontSize: 20,
 
-                }}>AGRICULTURE NEPAL</Text>
+                }}>
+
+                    {DateTimeCurrent}
+                </Text>
 
             </View>
-
 
         </TouchableOpacity >
     )

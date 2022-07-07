@@ -20,51 +20,93 @@ const db = mysql.createPool({
 
 
 // posting Registration data 
+// app.post("/api/registration", (req, res) => {
+//     const fullname = req.body.fullname
+//     const phonenumber = req.body.phonenumber
+//     const fulladdress = req.body.fulladdress
+//     const usertype = req.body.usertype
+//     const userfield = req.body.userfield
+//     const password = req.body.password
+//     const userbio = req.body.userbio
+
+//     if (fullname.length < 5) {
+//         res.send({ message: "❌fill up name properly" })
+//     }
+//     else if (phonenumber.length != 10) {
+//         res.send({ message: "❌fill up phone number properly" })
+//     }
+//     else if (fulladdress.length < 7) {
+//         res.send({ message: "❌fill up full address " })
+//     }
+//     else if (password.length < 8) {
+
+//         res.send({ message: "❌Your password is too small " })
+//     }
+
+//     else {
+//         const sqlInsert = "Insert into users(fullname,phonenumber,fulladdress, usertype,userfield,password,userbio) Values (?,?,?,?,?,?,?);"
+//         db.query(sqlInsert, [fullname, phonenumber, fulladdress, usertype, userfield, password, userbio], (err, result) => {
+//             if (err) {
+//                 console.log(err)
+//             }
+//             else {
+//                 res.send({ message: "Success" })
+//             }
+
+
+//         })
+//     }
+
+
+// })
+
 app.post("/api/registration", (req, res) => {
-    const fullname = req.body.fullname
+    const firstname = req.body.firstname
+    const lastname = req.body.lastname
     const phonenumber = req.body.phonenumber
-    const fulladdress = req.body.fulladdress
+    const tole = req.body.tole
+    const napagapa = req.body.napagapa
+    const district = req.body.district
+    const province = req.body.province
+
     const usertype = req.body.usertype
-    const userfield = req.body.userfield
     const password = req.body.password
-    const userbio = req.body.userbio
-
-    if (fullname.length < 5) {
-        res.send({ message: "❌fill up name properly" })
-    }
-    else if (phonenumber.length != 10) {
-        res.send({ message: "❌fill up phone number properly" })
-    }
-    else if (fulladdress.length < 7) {
-        res.send({ message: "❌fill up full address " })
-    }
-    else if (password.length < 8) {
-
-        res.send({ message: "❌Your password is too small " })
-    }
-
-    else {
-        const sqlInsert = "Insert into users(fullname,phonenumber,fulladdress, usertype,userfield,password,userbio) Values (?,?,?,?,?,?,?);"
-        db.query(sqlInsert, [fullname, phonenumber, fulladdress, usertype, userfield, password, userbio], (err, result) => {
-            if (err) {
-                console.log(err)
-            }
-            else {
-                res.send({ message: "Success" })
-            }
+    const dalahan = req.body.dalahan
+    const tarkari = req.body.tarkari
+    const chau = req.body.chau
+    const telhan = req.body.telhan
+    const gai = req.body.gai
+    const Vaisi = req.body.Vaisi
+    const bakhra = req.body.bakhra
+    const khukhura = req.body.khukhura
+    const kukur = req.body.kukur
+    const macha = req.body.macha
+    const others = req.body.others
 
 
-        })
-    }
+    const sqlInsert = "Insert into krishi(firstname,lastname,phonenumber, tole,napagapa,district,province,usertype,password,dalahan,tarkari,chau,telhan,gai,vaisi,bakhra,khukhura,kukur,macha,others) Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);"
+    db.query(sqlInsert, [firstname, lastname, phonenumber, tole, napagapa, district, province, usertype, password, dalahan, tarkari, chau, telhan, gai, Vaisi, bakhra, khukhura, kukur, macha, others], (err, result) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            res.send({ message: "Success" })
+        }
+
+
+    })
+
 
 
 })
+
+
 
 //login authentication
 app.post("/api/UserAuthLogin", (req, res) => {
     const phonenumber = req.body.phonenumber
     const password = req.body.password
-    const sqlSelect = "Select  * from users where phonenumber = ? And password= ?; "
+    const sqlSelect = "Select  * from krishi where phonenumber = ? And password= ?; "
     db.query(sqlSelect, [phonenumber, password], (err, result) => {
         if (err) {
 

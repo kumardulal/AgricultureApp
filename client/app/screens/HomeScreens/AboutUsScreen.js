@@ -10,7 +10,7 @@ export default function AboutUs() {
     return (
         <View>
             <HeaderItem />
-            <Text style={{ fontSize: 25, width: "100%", textAlign: "center", bottom: 20, }}>ABOUT US</Text>
+            <Text style={{ fontSize: 25, width: "100%", textAlign: "center", top: 2 }}>ABOUT US</Text>
             <ScrollView
                 showsHorizontalScrollIndicator={false}
                 style={{
