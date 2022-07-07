@@ -1,7 +1,5 @@
 import React from 'react'
 import { View, Text, Pressable, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
-import LogoTitle from '../../components/LOGINPAGE/LogoTitle';
-import { MaterialIcons } from '@expo/vector-icons';
 import HeaderItem from '../../components/HomeComponents/HeaderItem';
 import WeatherForeCast from '../../components/HomeComponents/WeatherForeCast';
 import FunctionalityItems from '../../components/HomeComponents/FunctionalityItems';

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, TextInput, Image, ImageBackground, SafeAreaView, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
 import Colorsmanager from '../collections/Colorsmanager'
 
 import LogoTitle from '../components/LOGINPAGE/LogoTitle'
