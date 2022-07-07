@@ -19,6 +19,7 @@ export default function RegistrationScreen({ navigation }) {
                 flex: 1,
                 backgroundColor: Colorsmanager.secondary,
                 justifyContent: "center",
+                opacity: 0.8
 
 
 

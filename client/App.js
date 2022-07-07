@@ -7,6 +7,8 @@ import RegistrationScreen from './app/screens/RegistrationScreen';
 import HomeScreen from './app/screens/HomeScreens/HomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import DrawerNav from './app/components/NavigationsRout/DrawerNav';
+import RegScreen from './app/screens/RegScreen';
+import RegScreen2 from './app/components/RegistrationPage/RegScreen2';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,9 +18,9 @@ export default function App() {
       <Stack.Navigator screenOptions={{
         headerShown: false
       }} >
-
         <Stack.Screen name="DrawerNav" component={DrawerNav} />
-
+        <Stack.Screen name="RegScreen2" component={RegScreen2} />
+        <Stack.Screen name="RegScreen" component={RegScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="RegistrationScreen" component={RegistrationScreen} />

@@ -83,7 +83,7 @@ export default function LoginScreen({ navigation }) {
             <View style={styles.whitebox}>
                 <View style={{ flexDirection: "row" }}>
                     <TouchableOpacity
-                        onPress={() => navigation.goBack()}
+                        onPress={() => navigation.navigate("DrawerNav")}
                         style={{ top: "7%", color: "black", marginLeft: 6 }}>
                         <Ionicons style={{ opacity: 0.8 }} name="md-arrow-back-outline" size={40} />
                     </TouchableOpacity>
@@ -100,7 +100,7 @@ export default function LoginScreen({ navigation }) {
                     height: "20%",
                     width: "100%",
                     alignItems: "center",
-                    marginTop: "27%",
+                    marginTop: "25%",
 
 
 
@@ -179,7 +179,7 @@ export default function LoginScreen({ navigation }) {
 
                     <TouchableOpacity
                         onPress={() => navigation.navigate({
-                            name: 'RegistrationScreen',
+                            name: 'RegScreen',
                             // params: { userdata: userdata, pdata: pdata },
                             merge: true,
                         })}
@@ -211,7 +211,7 @@ export default function LoginScreen({ navigation }) {
 
 const styles = StyleSheet.create({
     whitebox: {
-        height: 160,
+        height: "34%",
 
         width: "100%",
         backgroundColor: Colorsmanager.blanksilver,
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: "100%",
         width: "100%",
-        backgroundColor: Colorsmanager.secondary,
+        backgroundColor: Colorsmanager.blanksilver,
 
         alignItems: "center"
 
