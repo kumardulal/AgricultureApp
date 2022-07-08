@@ -4,8 +4,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import Colorsmanager from '../../collections/Colorsmanager'
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeCover() {
+    const navigation = useNavigation()
     return (
         <View style={{
             height: 185,
@@ -27,6 +29,7 @@ export default function HomeCover() {
             />
             <View style={{ flexDirection: "row", justifyContent: "space-between", width: "90%" }}>
                 <TouchableOpacity
+                    onPress={() => navigation.navigate("LoginScreen")}
                     style={styles.buttonCover}
                 >
                     <View style={styles.buttonAlign}>
