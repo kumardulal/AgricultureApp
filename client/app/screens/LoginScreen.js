@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, Image, SafeAreaView, TextInput, Button, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, Image, SafeAreaView, TextInput, Button, TouchableOpacity, Alert } from 'react-native'
 import Colorsmanager from '../collections/Colorsmanager'
 import Coverbox from '../components/LOGINPAGE/Coverbox'
 import LogoTitle from '../components/LOGINPAGE/LogoTitle'
@@ -114,7 +114,7 @@ export default function LoginScreen({ navigation }) {
                             // value={ }
 
 
-                            placeholder="username/phone number"
+                            placeholder="phone number/फोन नम्बर"
                             placeholderTextColor="#00716F"
                             style={styles.input}
                         >
@@ -128,7 +128,7 @@ export default function LoginScreen({ navigation }) {
                         <TextInput
                             onChangeText={setPassword}
                             secureTextEntry={true}
-                            placeholder="Password"
+                            placeholder="पासवर्ड/Password"
                             placeholderTextColor="#00716F"
                             value={password}
                             style={styles.input}
@@ -157,24 +157,26 @@ export default function LoginScreen({ navigation }) {
 
 
                     }}>
-                        <TouchableOpacity style={{
-                            fontSize: 12,
-                            color: Colorsmanager.primary
+                        <TouchableOpacity
 
-                        }}><Text style={{
-                            fontSize: 12,
-                            color: Colorsmanager.primary
-                        }}>FORGOT PASSWORD</Text></TouchableOpacity>
+                            onPress={() => Alert.alert('Requst Password sent.', 'तपाईको पासवर्ड तपाईको फोनमा केहि बेरमा पठाइनेछ |')}
+                            // onPress={() => alert(" Message sent. तपाईको पासवर्ड तपाईको फोनमा केहि बेरमा पठाइनेछ |")}
+                            style={{
+                                fontSize: 12,
+                                color: Colorsmanager.primary
+
+                            }}><Text style={{
+                                fontSize: 12,
+                                color: Colorsmanager.bluish,
+                            }}>पासवर्ड भुल्नु भयो ?</Text></TouchableOpacity>
 
                         <TouchableOpacity style={styles.button}
                             onPress={() => handleLoginPress()}
                         >
-                            <Text style={{ color: Colorsmanager.primary }}> LOGIN</Text>
+                            <Text style={{ color: Colorsmanager.primary }}> लग - इन</Text>
                         </TouchableOpacity>
 
                     </View>
-
-
 
 
                     <TouchableOpacity
@@ -187,13 +189,14 @@ export default function LoginScreen({ navigation }) {
 
                     >
                         <Text style={{
-                            color: Colorsmanager.primary,
+                            color: Colorsmanager.bluish,
                             fontSize: 16,
                             marginTop: "12%",
                             textAlign: "center",
                             textDecorationLine: 'underline',
 
-                        }}>Are you new user ? REGISTER</Text>
+
+                        }}>के तपाई नयाँ हुनुहुन्छ ? दर्ता गर्नुहोस्</Text>
                     </TouchableOpacity>
 
 
