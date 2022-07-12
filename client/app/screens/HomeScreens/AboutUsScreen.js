@@ -5,12 +5,13 @@ import HeaderItem from '../../components/HomeComponents/HeaderItem'
 
 
 
-export default function AboutUs() {
+export default function AboutUs({ navigation }) {
 
     return (
         <View>
-            <HeaderItem />
-            <Text style={{ fontSize: 25, width: "100%", textAlign: "center", top: 2 }}>ABOUT US</Text>
+            <HeaderItem navigation={navigation} />
+            <Text style={{ fontSize: 25, width: "100%", textAlign: "center", width: "100%", height: 45, top: 5 }}>
+                हाम्रोबारे</Text>
             <ScrollView
                 showsHorizontalScrollIndicator={false}
                 style={{

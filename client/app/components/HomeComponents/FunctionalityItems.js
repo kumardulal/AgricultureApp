@@ -1,11 +1,19 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, BackHandler } from 'react-native';
 import Colorsmanager from '../../collections/Colorsmanager';
-import { useNavigation } from '@react-navigation/native';
 // import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 function FunctionalityItems() {
     const navigation = useNavigation()
+
+    const handleNewsclicked = () => {
+        navigation.navigate({
+            name: 'news',
+
+            merge: false,
+        });
+    }
     return (
         <View style={{
             width: "100%",
@@ -14,7 +22,9 @@ function FunctionalityItems() {
             flexWrap: "wrap",
             marginBottom: 20
         }}>
+            {/* //news */}
             <TouchableOpacity
+                onPress={() => handleNewsclicked()}
 
                 style={styles.itemBox}>
                 <Image
@@ -23,31 +33,42 @@ function FunctionalityItems() {
                     source={(require("../../assets/functionalitylogos/news.png"))} />
             </TouchableOpacity>
 
+            {/* announcement */}
             <TouchableOpacity style={styles.itemBox}>
                 <Image
                     resizeMode="contain"
                     style={styles.items}
                     source={(require("../../assets/functionalitylogos/announcement.png"))} />
             </TouchableOpacity>
+            {/* events */}
             <TouchableOpacity style={styles.itemBox}>
                 <Image
                     resizeMode="contain"
                     style={styles.items}
                     source={(require("../../assets/functionalitylogos/events.png"))} />
             </TouchableOpacity>
+
+            {/* messaging */}
             <TouchableOpacity style={styles.itemBox}>
                 <Image
                     resizeMode="contain"
                     style={styles.items}
                     source={(require("../../assets/functionalitylogos/messaging.png"))} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.itemBox}>
+
+            {/* publication */}
+            <TouchableOpacity
+                onPress={() => navigation.navigate("Publication")}
+                style={styles.itemBox}>
                 <Image
                     resizeMode="contain"
                     style={styles.items}
                     source={(require("../../assets/functionalitylogos/publication.png"))} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.itemBox}>
+            {/* Gallery */}
+            <TouchableOpacity
+                onPress={() => navigation.navigate("Gallery")}
+                style={styles.itemBox}>
                 <Image
                     resizeMode="contain"
                     style={styles.items}

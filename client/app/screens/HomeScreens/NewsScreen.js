@@ -8,7 +8,7 @@ export default function NewsScreen() {
     const navigation = useNavigation()
     return (
         <View style={{ flex: 1 }}>
-            <HeaderItem />
+            <HeaderItem navigation={navigation} />
             <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
                 <Text style={{ fontSize: 10 }}>News</Text>
                 <TextInput

@@ -6,8 +6,8 @@ import LogoTitle from '../LOGINPAGE/LogoTitle';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Colorsmanager from '../../collections/Colorsmanager';
 import { SafeAreaView } from 'react-native-safe-area-context';
-export default function HeaderItem() {
-    const navigation = useNavigation()
+export default function HeaderItem({ navigation }) {
+    // const navigation = useNavigation()
     return (
         <View style={{
 
@@ -39,7 +39,7 @@ export default function HeaderItem() {
 
                     justifyContent: "space-between"
                 }}>
-                    <LogoTitle />
+                    <LogoTitle navigation={navigation} />
 
 
                     {/* login button HERE */}

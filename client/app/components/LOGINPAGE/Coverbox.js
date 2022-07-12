@@ -1,18 +1,18 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native'
 import Colorsmanager from '../../collections/Colorsmanager'
 
 
 
 export default function Coverbox() {
     return (
-        <View style={styles.coverboxCont}>
+        <SafeAreaView style={styles.coverboxCont}>
 
 
             <Image
-                resizeMode='contain'
+                resizeMode='stretch'
 
-                style={{ width: "100%", height: 150 }}
+                style={{ width: "100%", height: "100%" }}
                 source={require("../../assets/map.png")}
             />
 
@@ -20,7 +20,7 @@ export default function Coverbox() {
 
 
 
-        </View>
+        </SafeAreaView>
     )
 }
 const styles = StyleSheet.create({

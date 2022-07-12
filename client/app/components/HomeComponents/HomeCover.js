@@ -14,7 +14,6 @@ export default function HomeCover() {
             justifyContent: "center",
             alignItems: "center",
 
-
         }}>
 
             <Image
@@ -43,7 +42,8 @@ export default function HomeCover() {
                 >
                     <View style={styles.buttonAlign}>
                         <AntDesign name="message1" size={24} color="black" />
-                        <Text>Message us</Text>
+                        <Text>
+                            सन्देश पठाउनुहोस्</Text>
                     </View>
 
                 </TouchableOpacity>

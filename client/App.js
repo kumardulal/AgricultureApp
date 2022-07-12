@@ -16,9 +16,11 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        headerShown: false
-      }} >
+      <Stack.Navigator
+
+        screenOptions={{
+          headerShown: false
+        }} >
         <Stack.Screen name="DrawerNav" component={DrawerNav} />
         <Stack.Screen name="RegScreen2" component={RegScreen2} />
         <Stack.Screen name="RegScreen" component={RegScreen} />

@@ -33,7 +33,7 @@ export default function HomeScreen({ navigation }) {
                 </ScrollView>
 
 
-                <FunctionalityItems />
+                <FunctionalityItems navigation={navigation} />
             </ScrollView>
 
 

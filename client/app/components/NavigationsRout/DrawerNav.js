@@ -92,6 +92,8 @@ function DrawerNav({ route, navigation }) {
     return (
 
         <Drawer.Navigator
+            initialRouteName="HomeScreen"
+
             // useLegacyImplementation help u to prevent error related to version and babel plugin
             useLegacyImplementation={true}
             screenOptions={{
@@ -109,15 +111,17 @@ function DrawerNav({ route, navigation }) {
 
         >
             <Drawer.Screen
+
                 //home reference link : https://reactnavigation.org/docs/params/
                 name="Home" component={HomeScreen}
                 initialParams={data}
 
                 options={{
-                    drawerLabel: "Home",
-                    headerShown: false
+                    drawerLabel: "होम",
+                    headerShown: false,
 
                 }}
+
             />
             < Drawer.Screen
                 //News
@@ -155,7 +159,7 @@ function DrawerNav({ route, navigation }) {
                 initialParams={data}
                 component={AboutUs}
                 options={{
-                    drawerLabel: 'AboutUs',
+                    drawerLabel: 'हाम्रोबारे',
                     headerShown: false
                 }}
 

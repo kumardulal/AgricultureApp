@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, Image, SafeAreaView, TouchableOpacity } from 'react-native'
 import DateTimeCurrent from '../Engines/DateTimeCurrent'
-import NepaliDate from 'nepali-date-converter'
 
 
 
-export default function LogoTitle() {
+
+export default function LogoTitle({ navigation }) {
 
     console.log(DateTimeCurrent)
 
@@ -13,7 +13,7 @@ export default function LogoTitle() {
 
     return (
         <TouchableOpacity
-
+            onPress={() => navigation.navigate("Home")}
             style={styles.titlecontainer} >
             <View style={{
                 height: 70,
