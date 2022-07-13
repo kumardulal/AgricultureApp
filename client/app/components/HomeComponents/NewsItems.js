@@ -1,164 +1,126 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Colorsmanager from '../../collections/Colorsmanager';
 
-const NewsItems = () => {
+
+
+
+
+
+export default function Newstems({ navigation, newsitems }) {
+    // const [newstitile, setNewsTitle] = useState()
+    // const [newsintro, setNewsIntro] = useState()
+    // const [newsdesc, setNewsDesc] = useState()
+
+
+
+
+    const handlepress = (newstitile, newsintro, newsdesc) => {
+
+        navigation.navigate('NewsDetailsScreen', {
+            newstitile: newstitile,
+            newsintro: newsintro,
+            newsdesc: newsdesc,
+        });
+    }
 
     return (
         <>
-            <View style={{ flex: 1, justifyContent: "space-around", flexWrap: "nowrap" }}>
 
-                <View style={{
-                    width: "96%",
-                    height: "96%",
-                    backgroundColor: Colorsmanager.blanksilver,
-                    alignSelf: "center",
-                    flexWrap: "nowrap"
-
-                }} >
-                    <View style={styles.cardcontainer}>
-                        <View style={{ width: "96%", height: "95%" }}>
-
-                            <Image
-                                style={{ width: "100%", height: "100%", opacity: 0.88 }}
-                                resizeMode='cover'
-
-                                source={(require('../../assets/newsImage/news1.png'))} />
-                        </View>
+            <View style={{
+                width: "98%",
+                height: 160,
+                backgroundColor: Colorsmanager.blanksilver,
+                alignSelf: "center",
+                flexWrap: "wrap",
 
 
+            }} >
+                <View style={styles.cardcontainer}>
+                    <View style={{ width: "96%", }}>
 
+                        <Image
+                            style={{ width: "100%", height: "100%", opacity: 0.88 }}
+                            resizeMode='cover'
+
+                            source={(require('../../assets/newsImage/news1.png'))} />
                     </View>
 
-                </View>
 
-            </View>
-            {/* --------------------------------------------- */}
-            {/* erase this afer use getting array of items list from server -work only in one formar*/}
-            <View style={{ flex: 1, justifyContent: "space-around", flexWrap: "nowrap" }}>
-
-                <View style={{
-                    width: "96%",
-                    height: "100%",
-                    backgroundColor: Colorsmanager.blanksilver,
-                    alignSelf: "center",
-                    flexWrap: "nowrap"
-
-                }} >
-                    <View style={styles.cardcontainer}>
-                        <View style={{ width: "45%", height: "95%" }}>
-
-                            <Image
-                                style={{ width: "100%", height: "100%", opacity: 0.88 }}
-                                resizeMode='cover'
-
-                                source={(require('../../assets/newsImage/news2.png'))} />
-                        </View>
-
-                        <View style={{ flexWrap: "nowrap", backgroundColor: Colorsmanager.blanksilver, height: "95%", width: "55%" }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 17, left: 5 }}>Time to grow Graps</Text>
-                            <Text style={styles.textalignstraight}>This is the place to write about the news. Highlighted title will be here</Text>
-                        </View>
-
-                    </View>
 
                 </View>
 
             </View>
 
 
-            {/* ------------------------- */}
 
-            <View style={{ flex: 1, justifyContent: "space-around", flexWrap: "nowrap" }}>
+            {/* STARTS FROM HERE */}
 
-                <View style={{
-                    width: "96%",
-                    height: "100%",
-                    backgroundColor: Colorsmanager.blanksilver,
-                    alignSelf: "center",
-                    flexWrap: "nowrap"
 
-                }} >
-                    <View style={styles.cardcontainer}>
-                        <View style={{ width: "45%", height: "95%" }}>
 
-                            <Image
-                                style={{ width: "100%", height: "100%", opacity: 0.88 }}
-                                resizeMode='cover'
 
-                                source={(require('../../assets/newsImage/news3.png'))} />
+            {newsitems.map((val, index) => {
+                return (
+                    <TouchableOpacity
+
+
+                        key={index}
+
+                        onPress={() => handlepress(val.newstitle, val.newsintro, val.newsdesc)}
+
+                        style={{
+
+                            width: "96%",
+                            height: 170,
+                            backgroundColor: Colorsmanager.blanksilver,
+                            alignSelf: "center",
+                            flexWrap: "nowrap",
+                            margin: 2
+
+
+                        }} >
+                        <View style={styles.cardcontainerItem}>
+                            <View style={{ width: "45%", height: "95%" }}>
+
+                                <Image
+                                    style={{ width: "100%", height: "100%", opacity: 0.88 }}
+                                    resizeMode='cover'
+
+                                    source={(require('../../assets/newsImage/news3.png'))} />
+                            </View>
+
+                            <View style={{
+                                flexWrap: "nowrap",
+                                backgroundColor: Colorsmanager.blanksilver,
+                                height: "95%",
+                                width: "55%",
+                                right: "6%",
+                                padding: 3
+                            }}>
+                                <Text style={{
+                                    fontWeight: 'bold',
+                                    fontSize: 15,
+
+                                    textAlign: "justify",
+                                    padding: 5
+                                }}>{val.newstitle}</Text>
+                                <Text style={styles.textalignstraight}>{val.newsintro}</Text>
+
+                            </View>
+
                         </View>
 
-                        <View style={{ flexWrap: "nowrap", backgroundColor: Colorsmanager.blanksilver, height: "95%", width: "55%" }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 17, left: 5, textAlign: "center" }}>Vegetable Farm </Text>
-                            <Text style={styles.textalignstraight}>This is the place to write about the news. Highlighted title will be here</Text>
-                        </View>
+                    </TouchableOpacity>
+                )
+            })}
 
-                    </View>
 
-                </View>
 
-            </View>
-            <View style={{ flex: 1, justifyContent: "space-around", flexWrap: "nowrap" }}>
 
-                <View style={{
-                    width: "96%",
-                    height: "100%",
-                    backgroundColor: Colorsmanager.blanksilver,
-                    alignSelf: "center",
-                    flexWrap: "nowrap"
 
-                }} >
-                    <View style={styles.cardcontainer}>
-                        <View style={{ width: "45%", height: "95%" }}>
 
-                            <Image
-                                style={{ width: "100%", height: "100%", opacity: 0.88 }}
-                                resizeMode='cover'
 
-                                source={(require('../../assets/newsImage/news3.png'))} />
-                        </View>
 
-                        <View style={{ flexWrap: "nowrap", backgroundColor: Colorsmanager.blanksilver, height: "95%", width: "55%" }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 17, left: 5, textAlign: "center" }}>Vegetable Farm </Text>
-                            <Text style={styles.textalignstraight}>This is the place to write about the news. Highlighted title will be here</Text>
-                        </View>
-
-                    </View>
-
-                </View>
-
-            </View>
-            <View style={{ flex: 1, justifyContent: "space-around", flexWrap: "nowrap" }}>
-
-                <View style={{
-                    width: "96%",
-                    height: "100%",
-                    backgroundColor: Colorsmanager.blanksilver,
-                    alignSelf: "center",
-                    flexWrap: "nowrap"
-
-                }} >
-                    <View style={styles.cardcontainer}>
-                        <View style={{ width: "45%", height: "95%" }}>
-
-                            <Image
-                                style={{ width: "100%", height: "100%", opacity: 0.88 }}
-                                resizeMode='cover'
-
-                                source={(require('../../assets/newsImage/news3.png'))} />
-                        </View>
-
-                        <View style={{ flexWrap: "nowrap", backgroundColor: Colorsmanager.blanksilver, height: "95%", width: "55%" }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 17, left: 5, textAlign: "center" }}>Vegetable Farm </Text>
-                            <Text style={styles.textalignstraight}>This is the place to write about the news. Highlighted title will be here</Text>
-                        </View>
-
-                    </View>
-
-                </View>
-
-            </View>
 
 
         </>
@@ -168,13 +130,28 @@ const NewsItems = () => {
 const styles = StyleSheet.create({
     cardcontainer: {
         width: "100%",
-        height: 120,
+        height: "100%",
         flexDirection: "row",
-        justifyContent: "space-between",
-        margin: 5,
+        justifyContent: "center",
+        flexWrap: "wrap",
+        alignItems: "center"
+    },
+    textalignstraight: {
+        padding: 2.7,
+        left: 5,
+        textAlign: "justify",
+        marginRight: "4%",
+        flex: 1,
         flexWrap: "wrap"
     },
-    textalignstraight: { padding: 2.7, left: 5, textAlign: "justify", marginRight: "4%" }
+    cardcontainerItem: {
+        width: "100%",
+        height: 150,
+        flexDirection: "row",
+        justifyContent: "center",
+        flexWrap: "wrap",
+        alignItems: "center"
+    },
 })
 
-export default NewsItems;
+

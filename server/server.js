@@ -125,3 +125,17 @@ app.post("/api/UserAuthLogin", (req, res) => {
 app.listen(8001, () => {
     console.log("running on port 8001")
 })
+
+//GET NEWS ITEMS
+
+app.get("/api/getNewsItems", (req, res) => {
+    const sqlSelect = "Select * from news;"
+    db.query(sqlSelect, (err, result) => {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            res.send(result)
+        }
+    })
+})

@@ -10,6 +10,7 @@ import DrawerNav from './app/components/NavigationsRout/DrawerNav';
 import RegScreen from './app/screens/RegScreen';
 import RegScreen2 from './app/components/RegistrationPage/RegScreen2';
 import NewsScreen from './app/screens/HomeScreens/NewsScreen';
+import NewsDetailsScreen from './app/screens/NewsDetailsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ export default function App() {
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="NewsScreen" component={NewsScreen} />
         <Stack.Screen name="RegistrationScreen" component={RegistrationScreen} />
+        <Stack.Screen name="NewsDetailsScreen" component={NewsDetailsScreen} />
 
       </Stack.Navigator>
     </NavigationContainer >
