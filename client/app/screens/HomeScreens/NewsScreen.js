@@ -8,47 +8,10 @@ import Axios from 'axios'
 import ApiAddress from '../../components/ApiTrigger/ApiAddress';
 
 export default function NewsScreen() {
-    const [searchitem, setSearchItem] = useState([])
+    // const [searchitem, setSearchItem] = useState([])
     const navigation = useNavigation()
-    const [newsitems, setNewsItems] = useState(null)
-
-
-
-    const searchhandler = (search) => {
-        let matches = newsitems.filter(val => {
-            const regex = new RegExp(`^${search}`, `gi`);
-            return (val.newstitle.match(regex)) || (val.newsdesc.match(regex));
-
-        });
-        if (search.length === 0) {
-
-            navigation.reset({
-                routes: [{ name: 'NewsScreen' }],
-            })
-
-            matches = [];
-            setSearchItem([]);
-        }
-
-        setSearchItem(matches)
-
-    }
-    console.log(searchitem)
-
-
-
-
-
-
-    // if (searchitem.length > 0) {
-    //     console.log(" I am logged")
-
-    // }
-    // else {
-    //     console.log("i am empty")
-    // }
-
-
+    const [newsitems, setNewsItems] = useState([])
+    const [searchtext, setSearchText] = useState("")
 
 
 
@@ -68,6 +31,26 @@ export default function NewsScreen() {
 
     }, []);
 
+    // const searchhandler = (search) => {
+    //     let matches = newsitems.filter(val => {
+    //         const regex = new RegExp(`^${search}`, `gi`);
+    //         return (val.newstitle.match(regex)) || (val.newsdesc.match(regex));
+
+    //     });
+    //     if (search.length === 0) {
+    //         console.log("empty")
+    //         matches = [];
+    //         setSearchItem([]);
+
+    //     }
+    //     console.log("i am available in search")
+    //     setSearchItem(matches)
+
+    // }
+
+
+
+
 
 
     return (
@@ -76,7 +59,9 @@ export default function NewsScreen() {
             <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
                 <Text style={{ fontSize: 10 }}>News</Text>
                 <TextInput
-                    onChangeText={(text) => searchhandler(text)}
+
+                    onChangeText={setSearchText}
+                    // defaultValue={searchitem}
                     style={{
                         width: "80%",
                         backgroundColor: Colorsmanager.primary,
@@ -93,9 +78,10 @@ export default function NewsScreen() {
 
             <ScrollView>
                 {newsitems &&
-                    < NewsItems navigation={navigation} newsitems={newsitems} />}
+                    < NewsItems navigation={navigation} newsitems={newsitems} searchtext={searchtext} />}
             </ScrollView>
 
         </View>
     );
 }
+

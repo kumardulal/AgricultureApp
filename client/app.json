@@ -29,6 +29,6 @@
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "description": "Nepali format\nNepoli and Navigation repair "
+    "description": "News Databse and news details page included and started to work on search functionality"
   }
 }

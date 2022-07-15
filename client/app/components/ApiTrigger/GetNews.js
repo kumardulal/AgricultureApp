@@ -13,3 +13,6 @@ export default function GetNews({ setNewsItem }) {
     })
 
 }
+
+//this is not in use fro now
+//remove comment if u use this 

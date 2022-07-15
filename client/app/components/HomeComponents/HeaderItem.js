@@ -3,9 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import LogoTitle from '../LOGINPAGE/LogoTitle';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Colorsmanager from '../../collections/Colorsmanager';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
+
+
 export default function HeaderItem({ navigation }) {
     // const navigation = useNavigation()
     return (
@@ -14,8 +15,6 @@ export default function HeaderItem({ navigation }) {
             justifyContent: "center",
             alignItems: "center",
             flex: -1,
-
-
 
 
         }}>

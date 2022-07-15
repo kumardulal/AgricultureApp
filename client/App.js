@@ -11,6 +11,7 @@ import RegScreen from './app/screens/RegScreen';
 import RegScreen2 from './app/components/RegistrationPage/RegScreen2';
 import NewsScreen from './app/screens/HomeScreens/NewsScreen';
 import NewsDetailsScreen from './app/screens/NewsDetailsScreen';
+import MessageScreen from './app/screens/MessageScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ export default function App() {
         <Stack.Screen name="NewsScreen" component={NewsScreen} />
         <Stack.Screen name="RegistrationScreen" component={RegistrationScreen} />
         <Stack.Screen name="NewsDetailsScreen" component={NewsDetailsScreen} />
+        <Stack.Screen name="MessageScreen" component={MessageScreen} />
 
       </Stack.Navigator>
     </NavigationContainer >

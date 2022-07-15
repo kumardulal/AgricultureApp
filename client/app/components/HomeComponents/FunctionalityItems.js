@@ -49,7 +49,10 @@ function FunctionalityItems() {
             </TouchableOpacity>
 
             {/* messaging */}
-            <TouchableOpacity style={styles.itemBox}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate("MessageScreen")}
+
+                style={styles.itemBox}>
                 <Image
                     resizeMode="contain"
                     style={styles.items}
