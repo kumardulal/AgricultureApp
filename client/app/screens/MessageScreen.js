@@ -1,12 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import LogoTitle from '../components/LOGINPAGE/LogoTitle'
 import { View, Text, TouchableOpacity, Image, StyleSheet, TextInput } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colorsmanager from '../collections/Colorsmanager';
+import Axios from 'axios';
+import ApiAddress from '../components/ApiTrigger/ApiAddress';
+import DateTimeCurrent from '../components/Engines/DateTimeCurrent';
 
 export default function MessageScreen({ navigation }) {
+    const [usermessage, setUserMessage] = useState("")
+    const [defaultmessagevalue, setDefaultMessageValue] = useState(null)
+
+    useEffect(() => {
+        setDefaultMessageValue(usermessage)
+
+    }, [usermessage]);
+
+    const handleSendPress = () => [
+        Axios.post(`${ApiAddress.httpaddress}/api/post/sendmessage`, {
+            messagedatetime: DateTimeCurrent,
+            usermessage: usermessage
+        }).then((response) => {
+            setDefaultMessageValue(null)
+            alert("message posted")
+
+        }).catch((err) => {
+            console.log(err)
+        })
+
+    ]
     return (
         <SafeAreaView style={{
             height: "100%",
@@ -14,7 +38,9 @@ export default function MessageScreen({ navigation }) {
 
         }} >
 
+
             <View style={{ flexDirection: "row" }}>
+
                 {/* go back button */}
                 <TouchableOpacity
                     onPress={() => navigation.goBack()}
@@ -26,24 +52,49 @@ export default function MessageScreen({ navigation }) {
                 </View>
 
             </View>
+            <View style={{
+                backgroundColor: Colorsmanager.primary,
+                width: "98%",
+                alignSelf: "center",
+                height: 50,
+                justifyContent: "center",
+
+            }}>
+
+                <Text style={{
+
+                    textAlign: "center",
+                    fontSize: 25,
+                    fontWeight: "bold",
+
+
+                }}>सन्देश</Text>
+            </View>
+
             <View
                 style={{
-                    marginTop: "10%",
-                    height: 200,
-                    width: "98%",
+                    marginTop: "5%",
+                    height: 250,
+                    width: "90%",
                     backgroundColor: Colorsmanager.primary,
-                    alignSelf: "center"
+                    alignSelf: "center",
+                    borderRadius: 10
                 }}>
 
+
+
                 <TextInput
+                    onChangeText={setUserMessage}
+                    defaultValue={defaultmessagevalue}
                     multiline
-                    placeholder='write your message'
+                    placeholder='                           हामीलाई सन्देश लेख्नुहोस्'
                     style={{
 
                         height: "100%",
-                        width: "98%",
+                        width: "95%",
                         backgroundColor: Colorsmanager.primary,
                         alignSelf: "center",
+
 
                     }} />
 
@@ -51,17 +102,20 @@ export default function MessageScreen({ navigation }) {
 
             </View>
 
-            <TouchableOpacity style={{
-                marginTop: "5%",
-                width: 150,
-                height: 42,
-                backgroundColor: "green",
-                alignSelf: "center",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: 10
+            <TouchableOpacity
 
-            }}>
+                onPress={() => handleSendPress()}
+                style={{
+                    marginTop: "5%",
+                    width: 150,
+                    height: 42,
+                    backgroundColor: "green",
+                    alignSelf: "center",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: 10
+
+                }}>
                 <Text style={{ fontSize: 15 }}>SEND</Text></TouchableOpacity>
         </SafeAreaView>
     )

@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const mysql = require('mysql')
 const cors = require('cors')
+const { response } = require('express')
 
 app.use(cors())
 app.use(express.json())
@@ -84,6 +85,9 @@ app.post("/api/registration", (req, res) => {
     const others = req.body.others
 
 
+
+
+
     const sqlInsert = "Insert into krishi(firstname,lastname,phonenumber, tole,napagapa,district,province,usertype,password,dalahan,tarkari,chau,telhan,gai,vaisi,bakhra,khukhura,kukur,macha,others) Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);"
     db.query(sqlInsert, [firstname, lastname, phonenumber, tole, napagapa, district, province, usertype, password, dalahan, tarkari, chau, telhan, gai, Vaisi, bakhra, khukhura, kukur, macha, others], (err, result) => {
         if (err) {
@@ -121,6 +125,26 @@ app.post("/api/UserAuthLogin", (req, res) => {
         }
     })
 })
+
+app.post("/api/post/sendmessage", (req, res) => {
+    const senderid = 02
+    const usermessage = req.body.usermessage
+    const updateddate = req.body.messagedatetime
+
+    const sqlInsert = 'Insert into messages(senderid,usermessage,updateddate) values(?,?,?);'
+    db.query(sqlInsert, [senderid, usermessage, updateddate], (err, result) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            res.send(result)
+        }
+    })
+})
+
+
+
+
 
 app.listen(8001, () => {
     console.log("running on port 8001")
