@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, Pressable, SafeAreaView, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import HeaderItem from '../../components/HomeComponents/HeaderItem';
 import WeatherForeCast from '../../components/HomeComponents/WeatherForeCast';
@@ -7,14 +7,20 @@ import FunctionalityItems from '../../components/HomeComponents/FunctionalityIte
 import NewsItems from '../../components/HomeComponents/NewsItems';
 import HomeCover from '../../components/HomeComponents/HomeCover';
 import GalleryCover from '../../components/HomeComponents/GalleryCover';
+import ProfileModal from '../../components/modals/ProfileModal';
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen({ navigation, route }) {
+    const userdata = route.params?.data
+    const [modalDisplay, setModalDisplay] = useState(styles.modalOn)
+
+
+
 
     return (
         <SafeAreaView style={{ flex: 1, width: "100%", alignSelf: "center", }}>
             <HeaderItem navigation={navigation} />
 
-            <HomeCover />
+            <HomeCover setModalDisplay={setModalDisplay} userdata={userdata} />
             {/* <WeatherForeCast /> */}
             {/* <View style={{ marginTop: "1%" }}>
                 <FunctionalityItems />
@@ -28,9 +34,13 @@ export default function HomeScreen({ navigation }) {
                 // style={{ backgroundColor: "green" }} 
                 >
                     {/* <NewsItems /> */}
+                    <View style={modalDisplay}>
+                        <ProfileModal setModalDisplay={setModalDisplay} />
+                    </View>
 
                     <GalleryCover />
                 </ScrollView>
+
 
 
                 <FunctionalityItems navigation={navigation} />
@@ -49,5 +59,17 @@ const styles = StyleSheet.create({
         height: 200,
         alignItems: "center",
 
+    },
+    modalOn: {
+        // position: "fixed",
+        height: 200,
+        width: 150,
+
+
+        flex: 1,
+        borderTopRightRadius: 10
+    },
+    modaloff: {
+        display: "none"
     }
 })

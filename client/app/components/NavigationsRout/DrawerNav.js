@@ -94,6 +94,7 @@ function DrawerNav({ route, navigation }) {
         <Drawer.Navigator
             initialRouteName="HomeScreen"
 
+
             // useLegacyImplementation help u to prevent error related to version and babel plugin
             useLegacyImplementation={true}
             screenOptions={{

@@ -15,6 +15,7 @@ export default function LoginScreen({ navigation }) {
     const [password, setPassword] = useState('')
 
 
+
     //this useEffect will reset the states of login credentials
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
@@ -48,20 +49,49 @@ export default function LoginScreen({ navigation }) {
                 // handle success
                 /// declaring the values of api responnse data of user to send it as props to other child routes .
                 const userid = response.data[0].userid;
-                const fullname = response.data[0].fullname;
+                const firstname = response.data[0].firstname;
+                const lastname = response.data[0].lastname;
                 const phonenumber = response.data[0].phonenumber;
-                const fulladdress = response.data[0].fulladdress;
+                const tole = response.data[0].tole;
+                const napagapa = response.data[0].napagapa
+                const district = response.data[0].district;
+                const province = response.data[0].province;
                 const usertype = response.data[0].usertype;
-                const userfield = response.data[0].userfield;
-                const userbio = response.data[0].userbio
+                const password = response.data[0].password
+                const dalahan = response.data[0].dalahan;
+                const tarkari = response.data[0].tarkari;
+                const chau = response.data[0].chau;
+                const telhan = response.data[0].telhan
+                const gai = response.data[0].gai;
+                const vaisi = response.data[0].vaisi;
+                const bakhra = response.data[0].bakhra;
+                const khukhura = response.data[0].khukhura;
+                const kukur = response.data[0].kukur;
+                const macha = response.data[0].macha;
+                const others = response.data[0].others;
+
                 const data = {
                     'userid': userid,
-                    'fullname': fullname,
-                    'phonenumber': phonenumber,
-                    "fulladdress": fulladdress,
-                    "usertype": usertype,
-                    "userfield": userfield,
-                    "userbio": userbio
+                    'fistname': firstname,
+                    'lastname': lastname,
+                    "phonenumber": phonenumber,
+                    "tole": tole,
+                    "napagapa": napagapa,
+                    "district": district,
+                    'province': province,
+                    'usertype': usertype,
+                    "password": password,
+                    "dalahan": dalahan,
+                    "tarkari": tarkari,
+                    "chau": district,
+                    'telhan': userid,
+                    'gai': firstname,
+                    'vaisi': lastname,
+                    "bakhra": phonenumber,
+                    "khukhura": tole,
+                    "kukur": napagapa,
+                    "macha": district,
+                    "others": others
 
                 }
 

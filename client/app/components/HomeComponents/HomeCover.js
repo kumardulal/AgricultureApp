@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Colorsmanager from '../../collections/Colorsmanager'
@@ -6,8 +6,36 @@ import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-export default function HomeCover() {
+export default function HomeCover({ setModalDisplay, userdata }) {
+    const [loginstatetext, setLoginStateText] = useState("दर्ता/लग - इन")
+
     const navigation = useNavigation()
+
+    console.log(userdata)
+
+    // useEffect(() => {
+    //     if (userdata != '') {
+    //         setLoginStateText(`${userdata.firstname}`)
+    //     }
+    //     else {
+    //         setLoginStateText("दर्ता/लग - इन")
+    //     }
+    // }, [userdata]);
+
+    const handleLoginButton = () => {
+        ///if not yet login
+        if (loginstatetext === "दर्ता/लग - इन") {
+            navigation.navigate("LoginScreen", {
+
+            })
+
+        }
+        // if loggedin already
+        else {
+            setModalDisplay(styles.modalOn)
+        }
+
+    }
     return (
         <View style={{
             height: 185,
@@ -28,12 +56,12 @@ export default function HomeCover() {
             />
             <View style={{ flexDirection: "row", justifyContent: "space-between", width: "90%" }}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate("LoginScreen")}
+                    onPress={() => handleLoginButton()}
                     style={styles.buttonCover}
                 >
                     <View style={styles.buttonAlign}>
                         <MaterialIcons name="account-box" size={24} color="black" />
-                        <Text >दर्ता/लग - इन</Text>
+                        <Text >{loginstatetext}</Text>
                     </View>
 
                 </TouchableOpacity>
@@ -63,5 +91,18 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         borderRadius: 10
     },
-    buttonAlign: { justifyContent: "space-around", flexDirection: "row" }
+    buttonAlign: { justifyContent: "space-around", flexDirection: "row" },
+    modalOn: {
+        // position: "fixed",
+        height: 200,
+        width: 150,
+
+
+        flex: 1,
+        borderTopRightRadius: 10
+    },
+    modaloff: {
+        display: "none"
+    }
+
 })
