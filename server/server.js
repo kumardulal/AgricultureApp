@@ -127,7 +127,7 @@ app.post("/api/UserAuthLogin", (req, res) => {
 })
 
 app.post("/api/post/sendmessage", (req, res) => {
-    const senderid = 02
+    const senderid = req.body.userid
     const usermessage = req.body.usermessage
     const updateddate = req.body.messagedatetime
 

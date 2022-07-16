@@ -9,28 +9,44 @@ import Axios from 'axios';
 import ApiAddress from '../components/ApiTrigger/ApiAddress';
 import DateTimeCurrent from '../components/Engines/DateTimeCurrent';
 
-export default function MessageScreen({ navigation }) {
+export default function MessageScreen({ navigation, route }) {
+    const userdata = route.params?.userdata
     const [usermessage, setUserMessage] = useState("")
     const [defaultmessagevalue, setDefaultMessageValue] = useState(null)
+    const [sendbtntext, setsendBtnText] = useState("पठाउनुहोस्")
 
     useEffect(() => {
         setDefaultMessageValue(usermessage)
-
+        if (userdata == undefined) {
+            setsendBtnText("पहिले लगइन गर्नुहोस्")
+        }
     }, [usermessage]);
 
-    const handleSendPress = () => [
-        Axios.post(`${ApiAddress.httpaddress}/api/post/sendmessage`, {
-            messagedatetime: DateTimeCurrent,
-            usermessage: usermessage
-        }).then((response) => {
-            setDefaultMessageValue(null)
-            alert("message posted")
 
-        }).catch((err) => {
-            console.log(err)
-        })
 
-    ]
+
+    const handleSendPress = () => {
+        if (sendbtntext === "पठाउनुहोस्") {
+
+            Axios.post(`${ApiAddress.httpaddress}/api/post/sendmessage`, {
+                userid: userdata.userid,
+                messagedatetime: DateTimeCurrent,
+                usermessage: usermessage
+            }).then((response) => {
+                setDefaultMessageValue(null)
+                alert("message posted")
+
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+        else {
+            navigation.navigate("LoginScreen")
+        }
+
+
+
+    }
     return (
         <SafeAreaView style={{
             height: "100%",
@@ -109,14 +125,14 @@ export default function MessageScreen({ navigation }) {
                     marginTop: "5%",
                     width: 150,
                     height: 42,
-                    backgroundColor: "green",
+                    backgroundColor: Colorsmanager.secondary,
                     alignSelf: "center",
                     justifyContent: "center",
                     alignItems: "center",
                     borderRadius: 10
 
                 }}>
-                <Text style={{ fontSize: 15 }}>SEND</Text></TouchableOpacity>
+                <Text style={{ fontSize: 15 }}>{sendbtntext}</Text></TouchableOpacity>
         </SafeAreaView>
     )
 }

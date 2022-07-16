@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, TextInput } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, TextInput, ScrollView } from 'react-native'
 import Colorsmanager from '../../collections/Colorsmanager'
 import { Ionicons } from '@expo/vector-icons';
 import Checkbox from 'expo-checkbox';
@@ -79,7 +79,7 @@ export default function RegScreen2({ route, navigation }) {
 
 
     return (
-        <View>
+        <ScrollView>
             <View style={{
                 flexDirection: "row",
                 backgroundColor: Colorsmanager.blanksilver,
@@ -523,7 +523,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ANIMAS CATAGORY$$$$$$ */}
 
 
 
-        </View >
+        </ScrollView >
     )
 }
 const styles = StyleSheet.create({

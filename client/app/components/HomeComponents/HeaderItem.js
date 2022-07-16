@@ -7,8 +7,8 @@ import Colorsmanager from '../../collections/Colorsmanager';
 
 
 
-export default function HeaderItem({ navigation }) {
-    // const navigation = useNavigation()
+export default function HeaderItem() {
+    const navigation = useNavigation()
     return (
         <View style={{
 

@@ -27,7 +27,8 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNav({ route, navigation }) {
     const data = route.params?.data
-    console.log(data)
+
+
 
 
 
@@ -114,8 +115,8 @@ function DrawerNav({ route, navigation }) {
             <Drawer.Screen
 
                 //home reference link : https://reactnavigation.org/docs/params/
-                name="Home" component={HomeScreen}
-                initialParams={data}
+                name="Home"
+                children={() => <HomeScreen userdata={data} />}
 
                 options={{
                     drawerLabel: "होम",
@@ -126,7 +127,8 @@ function DrawerNav({ route, navigation }) {
             />
             < Drawer.Screen
                 //News
-                name="news" component={NewsScreen}
+                name="news"
+                children={() => <NewsScreen userdata={data} />}
                 initialParams={data}
                 options={{
                     drawerLabel: "समाचार",
@@ -136,7 +138,8 @@ function DrawerNav({ route, navigation }) {
             < Drawer.Screen
                 //gallery
                 name="Gallery"
-                component={GalleryScreen}
+
+                children={() => <GalleryScreen userdata={data} />}
                 initialParams={data}
                 options={{
                     drawerLabel: 'ग्यालेरी',
@@ -147,7 +150,7 @@ function DrawerNav({ route, navigation }) {
                 //publication
                 name="Publication"
                 initialParams={data}
-                component={PublicationScreen}
+                children={() => <PublicationScreen userdata={data} />}
                 options={{
                     drawerLabel: 'प्रकाशन',
                     headerShown: false

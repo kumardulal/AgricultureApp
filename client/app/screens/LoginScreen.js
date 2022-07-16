@@ -71,27 +71,27 @@ export default function LoginScreen({ navigation }) {
                 const others = response.data[0].others;
 
                 const data = {
-                    'userid': userid,
-                    'fistname': firstname,
-                    'lastname': lastname,
-                    "phonenumber": phonenumber,
-                    "tole": tole,
-                    "napagapa": napagapa,
-                    "district": district,
-                    'province': province,
-                    'usertype': usertype,
-                    "password": password,
-                    "dalahan": dalahan,
-                    "tarkari": tarkari,
-                    "chau": district,
-                    'telhan': userid,
-                    'gai': firstname,
-                    'vaisi': lastname,
-                    "bakhra": phonenumber,
-                    "khukhura": tole,
-                    "kukur": napagapa,
-                    "macha": district,
-                    "others": others
+                    userid: userid,
+                    firstname: firstname,
+                    lastname: lastname,
+                    phonenumber: phonenumber,
+                    tole: tole,
+                    napagapa: napagapa,
+                    district: district,
+                    province: province,
+                    usertype: usertype,
+                    password: password,
+                    dalahan: dalahan,
+                    tarkari: tarkari,
+                    chau: district,
+                    telhan: userid,
+                    gai: firstname,
+                    vaisi: lastname,
+                    bakhra: phonenumber,
+                    khukhura: tole,
+                    kukur: napagapa,
+                    macha: district,
+                    others: others
 
                 }
 
@@ -142,9 +142,9 @@ export default function LoginScreen({ navigation }) {
                             onChangeText={setPhoneNumber}
                             value={phonenumber}
                             // value={ }
+                            keyboardType="numeric"
 
-
-                            placeholder="phone number/फोन नम्बर"
+                            placeholder="फोन नम्बर"
                             placeholderTextColor="#00716F"
                             style={styles.input}
                         >
@@ -158,7 +158,7 @@ export default function LoginScreen({ navigation }) {
                         <TextInput
                             onChangeText={setPassword}
                             secureTextEntry={true}
-                            placeholder="पासवर्ड/Password"
+                            placeholder="पासवर्ड"
                             placeholderTextColor="#00716F"
                             value={password}
                             style={styles.input}
@@ -200,6 +200,8 @@ export default function LoginScreen({ navigation }) {
                                 color: Colorsmanager.bluish,
                             }}>पासवर्ड भुल्नु भयो ?</Text></TouchableOpacity>
 
+
+                        {/* Login here */}
                         <TouchableOpacity style={styles.button}
                             onPress={() => handleLoginPress()}
                         >

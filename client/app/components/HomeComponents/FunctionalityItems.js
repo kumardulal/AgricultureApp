@@ -4,13 +4,13 @@ import Colorsmanager from '../../collections/Colorsmanager';
 // import { useNavigation } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 
-function FunctionalityItems() {
+function FunctionalityItems({ userdata }) {
     const navigation = useNavigation()
 
     const handleNewsclicked = () => {
         navigation.navigate({
             name: 'news',
-
+            userdata: userdata,
             merge: false,
         });
     }
@@ -24,7 +24,7 @@ function FunctionalityItems() {
         }}>
             {/* //news */}
             <TouchableOpacity
-                onPress={() => handleNewsclicked()}
+                onPress={() => handleNewsclicked(userdata)}
 
                 style={styles.itemBox}>
                 <Image
@@ -50,7 +50,9 @@ function FunctionalityItems() {
 
             {/* messaging */}
             <TouchableOpacity
-                onPress={() => navigation.navigate("MessageScreen")}
+                onPress={() => navigation.navigate("MessageScreen", {
+                    userdata: userdata
+                })}
 
                 style={styles.itemBox}>
                 <Image

@@ -6,21 +6,27 @@ import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-export default function HomeCover({ setModalDisplay, userdata }) {
-    const [loginstatetext, setLoginStateText] = useState("दर्ता/लग - इन")
+export default function HomeCover({ setModalDisplay, userdata, loginstatetext, setLoginStateText }) {
+
 
     const navigation = useNavigation()
 
-    console.log(userdata)
 
-    // useEffect(() => {
-    //     if (userdata != '') {
-    //         setLoginStateText(`${userdata.firstname}`)
-    //     }
-    //     else {
-    //         setLoginStateText("दर्ता/लग - इन")
-    //     }
-    // }, [userdata]);
+
+    useEffect(() => {
+        if (userdata != undefined) {
+            if (userdata.phonenumber.length > 0) {
+                setLoginStateText(" User Profile ✔️")
+            }
+            else {
+                alert("userValidation Data not received")
+            }
+        }
+
+        else {
+            setLoginStateText("दर्ता/लग - इन")
+        }
+    }, [userdata]);
 
     const handleLoginButton = () => {
         ///if not yet login
@@ -66,6 +72,9 @@ export default function HomeCover({ setModalDisplay, userdata }) {
 
                 </TouchableOpacity>
                 <TouchableOpacity
+                    onPress={() => navigation.navigate("MessageScreen", {
+                        userdata: userdata
+                    })}
                     style={styles.buttonCover}
                 >
                     <View style={styles.buttonAlign}>

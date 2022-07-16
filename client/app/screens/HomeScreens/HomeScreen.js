@@ -9,10 +9,10 @@ import HomeCover from '../../components/HomeComponents/HomeCover';
 import GalleryCover from '../../components/HomeComponents/GalleryCover';
 import ProfileModal from '../../components/modals/ProfileModal';
 
-export default function HomeScreen({ navigation, route }) {
-    const userdata = route.params?.data
-    const [modalDisplay, setModalDisplay] = useState(styles.modalOn)
-
+export default function HomeScreen({ navigation, userdata }) {
+    // const data = route.params?.data
+    const [modalDisplay, setModalDisplay] = useState(styles.modaloff)
+    const [loginstatetext, setLoginStateText] = useState("दर्ता/लग - इन")
 
 
 
@@ -20,7 +20,7 @@ export default function HomeScreen({ navigation, route }) {
         <SafeAreaView style={{ flex: 1, width: "100%", alignSelf: "center", }}>
             <HeaderItem navigation={navigation} />
 
-            <HomeCover setModalDisplay={setModalDisplay} userdata={userdata} />
+            <HomeCover setModalDisplay={setModalDisplay} userdata={userdata} loginstatetext={loginstatetext} setLoginStateText={setLoginStateText} />
             {/* <WeatherForeCast /> */}
             {/* <View style={{ marginTop: "1%" }}>
                 <FunctionalityItems />
@@ -35,7 +35,7 @@ export default function HomeScreen({ navigation, route }) {
                 >
                     {/* <NewsItems /> */}
                     <View style={modalDisplay}>
-                        <ProfileModal setModalDisplay={setModalDisplay} />
+                        <ProfileModal setModalDisplay={setModalDisplay} userdata={userdata} loginstatetext={loginstatetext} />
                     </View>
 
                     <GalleryCover />
@@ -43,7 +43,7 @@ export default function HomeScreen({ navigation, route }) {
 
 
 
-                <FunctionalityItems navigation={navigation} />
+                <FunctionalityItems navigation={navigation} userdata={userdata} />
             </ScrollView>
 
 
