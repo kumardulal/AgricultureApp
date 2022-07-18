@@ -29,6 +29,6 @@
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "description": "Login Lout with data changes updated"
+    "description": "Message credentials  for loggen in users only - updated"
   }
 }

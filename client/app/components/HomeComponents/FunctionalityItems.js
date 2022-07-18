@@ -34,7 +34,12 @@ function FunctionalityItems({ userdata }) {
             </TouchableOpacity>
 
             {/* announcement */}
-            <TouchableOpacity style={styles.itemBox}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate("AnnouncementScreen",
+                    {
+                        userdata: userdata
+                    })}
+                style={styles.itemBox}>
                 <Image
                     resizeMode="contain"
                     style={styles.items}

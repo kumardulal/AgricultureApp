@@ -26,24 +26,28 @@ export default function MessageScreen({ navigation, route }) {
 
 
     const handleSendPress = () => {
-        if (sendbtntext === "पठाउनुहोस्") {
+        try {
+            if (sendbtntext === "पठाउनुहोस्") {
 
-            Axios.post(`${ApiAddress.httpaddress}/api/post/sendmessage`, {
-                userid: userdata.userid,
-                messagedatetime: DateTimeCurrent,
-                usermessage: usermessage
-            }).then((response) => {
-                setDefaultMessageValue(null)
-                alert("message posted")
+                Axios.post(`${ApiAddress.httpaddress}/api/post/sendmessage`, {
+                    userid: userdata.userid,
+                    messagedatetime: DateTimeCurrent,
+                    usermessage: usermessage
+                }).then((response) => {
+                    setDefaultMessageValue(null)
+                    alert("message posted")
 
-            }).catch((err) => {
-                console.log(err)
-            })
+                }).catch((err) => {
+                    console.log(err)
+                })
+            }
+            else {
+                navigation.navigate("LoginScreen")
+            }
         }
-        else {
-            navigation.navigate("LoginScreen")
+        catch (err) {
+            console.log(err)
         }
-
 
 
     }

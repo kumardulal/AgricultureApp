@@ -143,11 +143,19 @@ app.post("/api/post/sendmessage", (req, res) => {
 })
 
 
+//announcement
+app.get("/api/get/announcements", (req, res) => {
 
+    const sqlSelect = "Select  * from announcement; "
+    db.query(sqlSelect, (err, result) => {
+        if (err) {
 
-
-app.listen(8001, () => {
-    console.log("running on port 8001")
+            res.send({ err: err })
+        }
+        else {
+            res.send(result)
+        }
+    })
 })
 
 //GET NEWS ITEMS
@@ -163,3 +171,8 @@ app.get("/api/getNewsItems", (req, res) => {
         }
     })
 })
+
+app.listen(8001, () => {
+    console.log("running on port 8001")
+})
+
