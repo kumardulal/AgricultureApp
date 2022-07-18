@@ -29,6 +29,6 @@
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "description": "Message credentials  for loggen in users only - updated"
+    "description": "Events and announcement with d=ynamic tsk"
   }
 }

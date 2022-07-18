@@ -10,15 +10,21 @@ import ApiAddress from '../../components/ApiTrigger/ApiAddress';
 
 export default function AnnouncementScreen({ navigation, route }) {
     const userdata = route.params?.userdata
-    console.log(userdata)
     const [announcementdata, setAnnouncementData] = useState()
 
     useEffect(() => {
-        Axios.get(`${ApiAddress.httpaddress}/api/get/announcements`)
-            .then((response) => {
+        try {
+            Axios.get(`${ApiAddress.httpaddress}/api/get/announcements`)
+                .then((response) => {
 
-                console.log(response.data)
-            })
+                    setAnnouncementData(response.data)
+                })
+        }
+        catch (err) {
+            console.log(err)
+
+        }
+
 
     }, [])
 
@@ -50,7 +56,8 @@ export default function AnnouncementScreen({ navigation, route }) {
                     backgroundColor: Colorsmanager.primary,
                     marginTop: 16
                 }}>
-                <Text style={{ textAlign: "center", fontSize: 25, height: 40 }}>Announcement</Text>
+                <Text style={{ textAlign: "center", fontSize: 25, height: 40, fontWeight: "bold" }}>
+                    घोषणा</Text>
 
 
 
@@ -58,15 +65,28 @@ export default function AnnouncementScreen({ navigation, route }) {
                     showsVerticalScrollIndicator={false}
                 >
                     {/* ///items listing startd here */}
+                    <>
+                        {announcementdata?.map((val, index) => {
+                            return (
+                                < TouchableOpacity key={index}>
+                                    <MaterialIcons name="announcement" size={24} color="black" />
+                                    <Image
+                                        source={require('../../assets/newsImage/news3.png')} style={{ width: "98%", height: 159, alignSelf: "center", opacity: 0.9 }} />
+                                    <View style={{
+                                        height: 60,
+                                        width: "98%",
+                                        alignSelf: "center",
+                                        backgroundColor: Colorsmanager.blanksilver,
+                                        justifyContent: "center"
+                                    }}>
+                                        <Text style={{ textAlign: "center", fontSize: 17, fontWeight: "bold", color: "black" }}>{val.atitle}</Text>
 
-
-                    {/* ...put the mapping ciode here */}
-                    <MaterialIcons name="announcement" size={24} color="black" />
-                    <Image
-                        source={require('../../assets/newsImage/news1.png')} style={{ width: "98%", height: 159, alignSelf: "center" }} />
-                    <View style={{ height: 50, width: "98%", alignSelf: "center", backgroundColor: Colorsmanager.blanksilver }}>
-                        <Text style={{ textAlign: "justify", }}>DESCRIOBE ABOUT THE ANNUNCEMNET. THIS DESCRIPTION IS   fosd jfoids IN SHORT FORM </Text>
-                    </View>
+                                    </View>
+                                </TouchableOpacity>
+                            )
+                        })}
+                        {/* ...put the mapping ciode here */}
+                    </>
 
                 </ScrollView>
 

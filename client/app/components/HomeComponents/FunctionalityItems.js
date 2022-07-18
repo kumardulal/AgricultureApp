@@ -46,7 +46,9 @@ function FunctionalityItems({ userdata }) {
                     source={(require("../../assets/functionalitylogos/announcement.png"))} />
             </TouchableOpacity>
             {/* events */}
-            <TouchableOpacity style={styles.itemBox}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate("EventScreen")}
+                style={styles.itemBox}>
                 <Image
                     resizeMode="contain"
                     style={styles.items}
