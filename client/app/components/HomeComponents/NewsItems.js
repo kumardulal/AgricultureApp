@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Colorsmanager from '../../collections/Colorsmanager';
 import SearchListFilter from '../Engines/SearchListFilter';
+import Footer from './Footer';
 
 
 export default function Newstems({ navigation, newsitems, searchtext }) {
@@ -64,7 +65,7 @@ export default function Newstems({ navigation, newsitems, searchtext }) {
                 </View>
 
             </View>
-
+            <Footer />
 
             {/* ----------------------Search items listing------------------------------ */}
 

@@ -8,6 +8,7 @@ import NewsItems from '../../components/HomeComponents/NewsItems';
 import HomeCover from '../../components/HomeComponents/HomeCover';
 import GalleryCover from '../../components/HomeComponents/GalleryCover';
 import ProfileModal from '../../components/modals/ProfileModal';
+import Footer from '../../components/HomeComponents/Footer';
 
 export default function HomeScreen({ navigation, userdata }) {
     // const data = route.params?.data
@@ -44,6 +45,7 @@ export default function HomeScreen({ navigation, userdata }) {
 
 
                 <FunctionalityItems navigation={navigation} userdata={userdata} />
+                <Footer />
             </ScrollView>
 
 

@@ -6,6 +6,7 @@ import NewsItems from '../../components/HomeComponents/NewsItems';
 import Colorsmanager from '../../collections/Colorsmanager';
 import Axios from 'axios'
 import ApiAddress from '../../components/ApiTrigger/ApiAddress';
+import Footer from '../../components/HomeComponents/Footer';
 
 export default function NewsScreen() {
     // const [searchitem, setSearchItem] = useState([])
@@ -75,6 +76,7 @@ export default function NewsScreen() {
 
                 />
             </View>
+           
 
             <ScrollView>
                 {newsitems &&

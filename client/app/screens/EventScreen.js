@@ -9,6 +9,7 @@ import Axios from "axios"
 import Colorsmanager from '../collections/Colorsmanager';
 import LogoTitle from '../components/LOGINPAGE/LogoTitle';
 import ApiAddress from '../components/ApiTrigger/ApiAddress';
+import Footer from '../components/HomeComponents/Footer';
 
 
 export default function EventScreen({ navigation }) {
@@ -106,7 +107,7 @@ export default function EventScreen({ navigation }) {
                     >
 
                         <View style={{ height: "100%", justifyContent: "flex-end", padding: 7, width: "50%", bottom: "2%" }}>
-                            <Text style={{ fontWeight: "bold", fontSize: 27, color: Colorsmanager.primary }}>EVENT </Text>
+                            <Text style={{ fontWeight: "bold", fontSize: 27, color: Colorsmanager.primary }}>कार्यक्रम </Text>
                             <Text style={{ fontWeight: "bold", fontSize: 15, color: Colorsmanager.primary }}>{eventname}</Text>
                         </View>
                         <View style={{
@@ -182,25 +183,7 @@ export default function EventScreen({ navigation }) {
                             </TouchableOpacity>
                         )
                     })}
-
-                    {/* <TouchableOpacity style={{ flexDirection: "row", backgroundColor: Colorsmanager.blanksilver, justifyContent: "space-between" }}>
-
-                        <Image
-                            style={{ width: 100, height: 100, margin: 5, borderTopRightRadius: 10 }}
-                            source={require('../assets/announcementitem/two.png')}
-                        />
-                        <View style={{ width: "80%", backgroundColor: Colorsmanager.redhightlights, flexWrap: "wrap", paddingLeft: "2%" }}>
-
-                            <Text style={{ fontSize: 15, fontWeight: "bold", width: "80%", textAlign: "justify", flexWrap: "wrap" }}>Name of the event here  dshlfjdslkfjldskjf lsdkjfoisd foids  lfdsjflksdj fldsflkdsjfolsdk lk</Text>
-                            <Text >Dhura bazar faat</Text>
-                            <Text style={{
-                                paddingLeft
-                                    : 10
-                            }}>july 25 10 pm</Text>
-                        </View>
-                    </TouchableOpacity> */}
-
-
+                    <Footer />
 
                 </ScrollView>
 

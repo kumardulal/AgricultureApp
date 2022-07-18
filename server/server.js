@@ -157,6 +157,20 @@ app.get("/api/get/announcements", (req, res) => {
         }
     })
 })
+//announcement
+app.get("/api/get/events", (req, res) => {
+
+    const sqlSelect = "Select  * from event; "
+    db.query(sqlSelect, (err, result) => {
+        if (err) {
+
+            res.send({ err: err })
+        }
+        else {
+            res.send(result)
+        }
+    })
+})
 
 //GET NEWS ITEMS
 

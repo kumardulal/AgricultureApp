@@ -8,6 +8,7 @@ import Colorsmanager from '../collections/Colorsmanager';
 import Axios from 'axios';
 import ApiAddress from '../components/ApiTrigger/ApiAddress';
 import DateTimeCurrent from '../components/Engines/DateTimeCurrent';
+import Footer from '../components/HomeComponents/Footer';
 
 export default function MessageScreen({ navigation, route }) {
     const userdata = route.params?.userdata
@@ -59,6 +60,7 @@ export default function MessageScreen({ navigation, route }) {
         }} >
 
 
+
             <View style={{ flexDirection: "row" }}>
 
                 {/* go back button */}
@@ -81,6 +83,7 @@ export default function MessageScreen({ navigation, route }) {
 
             }}>
 
+
                 <Text style={{
 
                     textAlign: "center",
@@ -90,6 +93,7 @@ export default function MessageScreen({ navigation, route }) {
 
                 }}>सन्देश</Text>
             </View>
+            <Footer />
 
             <View
                 style={{

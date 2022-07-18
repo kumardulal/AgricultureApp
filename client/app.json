@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Agriculture App",
-    "slug": "agriculture-app",
+    "name": "Smart Krishi(Madesh)",
+    "slug": "Smart-Krishi",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/icon.png",
@@ -21,6 +21,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.smartkrishi.madesh",
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -29,6 +30,6 @@
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "description": "Events and announcement with d=ynamic tsk"
+    "description": "social medai link integrated 2"
   }
 }

@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import Axios from "axios"
 import ApiAddress from '../../components/ApiTrigger/ApiAddress';
+import Footer from '../../components/HomeComponents/Footer';
 
 
 export default function AnnouncementScreen({ navigation, route }) {
@@ -51,7 +52,7 @@ export default function AnnouncementScreen({ navigation, route }) {
 
             <View style={
                 {
-                    height: "85%",
+                    height: "87%",
                     width: "100%",
                     backgroundColor: Colorsmanager.primary,
                     marginTop: 16
@@ -69,7 +70,7 @@ export default function AnnouncementScreen({ navigation, route }) {
                         {announcementdata?.map((val, index) => {
                             return (
                                 < TouchableOpacity key={index}>
-                                    <MaterialIcons name="announcement" size={24} color="black" />
+                                    <MaterialIcons name="announcement" size={28} color="red" />
                                     <Image
                                         source={require('../../assets/newsImage/news3.png')} style={{ width: "98%", height: 159, alignSelf: "center", opacity: 0.9 }} />
                                     <View style={{
@@ -86,9 +87,11 @@ export default function AnnouncementScreen({ navigation, route }) {
                             )
                         })}
                         {/* ...put the mapping ciode here */}
+                        <Footer />
                     </>
 
                 </ScrollView>
+
 
             </View>
         </View >

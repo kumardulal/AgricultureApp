@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import GalleryCollections from '../../collections/GalleryCollections';
+import Footer from './Footer';
 
 
 
@@ -56,7 +57,7 @@ function GalleryItems() {
                 resizeMode='contain'
                 source={img6} />
 
-
+            <Footer />
         </View>
 
 
